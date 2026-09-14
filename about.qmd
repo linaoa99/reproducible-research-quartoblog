@@ -14,4 +14,14 @@ about:
 
 ---
 
-About this blog
+### Professional Background
+Lina Andersson is a PhD student in the Department of Pediatrics at Sahlgrenska Academy, University of Gothenburg, Sweden. 
+
+Her research is focused on understanding the molecular mechanisms underlying juvenile idiopathic arthritis. Using methods like flow cytometry, bulk RNA sequencing, and single-cell RNA sequencing, she investigates the cellular and molecular changes in disease development and progression. 
+
+### Education
+* Bachelor's degree in Molecular Biology from University of Gothenburg
+* Master's degree in Molecular Biology from University of Gothenburg. 
+
+### Personal Interests
+In her spare time, Lina enjoys gaming, reading, and cooking.
