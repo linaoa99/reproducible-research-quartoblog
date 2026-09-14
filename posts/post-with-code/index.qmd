@@ -1,9 +1,94 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
+title: "How to Publish a Quarto Blog via GitHub"
+author: "Lina Andersson"
 date: "2026-09-14"
-categories: [news, code, analysis]
-image: "image.jpg"
+categories: [Instructions, Quarto, GitHub]
 ---
 
-This is a post with executable code.
+When first making a Quarto blog, it can be a bit tricky to figure out how to publish it online. In this post, I will walk you through the steps to publish your Quarto blog via GitHub Pages.
+
+### Prerequisites
+
+1. Make a Quarto blog project. You can do this by typing `Quarto: New Project` in the command palette.
+
+This will create a new Quarto project with the necessary files and folder structure for a blog. You can customize your blog by editing the `_quarto.yml` file and adding your own content in the `posts` folder.
+
+2. Next, start tracking your project with Git. Make sure you are in your project directory. You can do this by opening a terminal in your project directory and typing:
+
+```bash
+|# eval: false
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+3. Create a new repository on GitHub and connect your local repository to it. You can do this by typing the following commands in your terminal:
+
+```bash
+|# eval: false
+git remote add origin <your-github-repo-url>
+git branch -M main
+git push -u origin main
+```
+
+### Publishing in GitHub Pages
+
+You can now publish your blog using GitHub Pages, a website hosting service. <u>This only needs to be done once</u>
+
+1. Make sure you are only rendering locally. You do this by freezing the blog to a static site by adding the following line to your `_quarto.yml` file:
+
+execute:
+  freeze: auto
+
+If you have executable code in your project you’ll notice that a `_freeze` directory has been created. This directory stores the results of computations and should be checked in to version control. Whenever you change a .qmd file with executable code, it will automatically be re-run during your next render and the updated computations will be stored in `_freeze`.
+
+2. Next, render your blog locally by typing the following command in your terminal:
+
+```bash
+|# eval: false
+quarto render
+``` 
+
+3. Next, you need to configure the GitHub Pages deployment for subsequent invocations. You can do this by typing the following command in your terminal:
+
+```bash
+|# eval: false
+quarto publish gh-pages
+```
+
+4. Add a "workflows" directory to your `.github` folder and create a new file called `publish.yml` in it. Add the following content unchanged into the `publish.yml` file:
+
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+This file will contain the configuration for the GitHub Actions workflow that will automatically build and deploy your blog whenever you push changes to your repository.
+
+5. Finally, push your changes to GitHub
+
+
+
+
