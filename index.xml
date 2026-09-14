@@ -12,6 +12,35 @@
 <generator>quarto-1.10.18</generator>
 <lastBuildDate>Mon, 14 Sep 2026 00:00:00 GMT</lastBuildDate>
 <item>
+  <title>How to add a GIF</title>
+  <dc:creator>Lina Andersson</dc:creator>
+  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/duck-dance/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Here, I learned how to add a GIF to a Quarto blog post.</p>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/duck-dance/duck-dance.gif" class="img-fluid" style="width:50.0%"></p>
+<div id="f409c545" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>[](duck<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>dance.gif)</span></code></pre></div></div>
+</div>
+<p>I also learned that you can add a GIF to a Quarto blog post by using the <code>![]()</code> syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.</p>
+<p>Isn’t that great? It makes me wanna duck dance!</p>
+
+
+
+ ]]></description>
+  <category>Instructions</category>
+  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/duck-dance/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Post With Code</title>
   <dc:creator>Harlow Malloc</dc:creator>
   <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/post-with-code/</link>
@@ -32,27 +61,6 @@
   <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/post-with-code/</guid>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
   <media:content url="https://linaoa99.github.io/reproducible-research-quartoblog/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Welcome To My Blog</title>
-  <dc:creator>Tristan O&#39;Malley</dc:creator>
-  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/welcome/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
-
-
-
- ]]></description>
-  <category>news</category>
-  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/welcome/</guid>
-  <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
