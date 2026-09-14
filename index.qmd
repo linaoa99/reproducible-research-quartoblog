@@ -1,5 +1,5 @@
 ---
-title: "Quarto Blog"
+title: "Lina's Quarto Blog"
 listing:
   contents: posts
   feed: true

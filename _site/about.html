@@ -127,14 +127,25 @@ ul.task-list li input[type="checkbox"] {
  <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">About</h1>
-<p class="subtitle lead">Lina Andersson</p>
 </div>
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<p>About this blog</p>
+<section id="professional-background" class="level3">
+<h3 data-anchor-id="professional-background">Professional Background</h3>
+<p>Lina Andersson is a PhD student in the Department of Pediatrics at Sahlgrenska Academy, University of Gothenburg, Sweden.</p>
+<p>Her research is focused on understanding the molecular mechanisms underlying juvenile idiopathic arthritis. Using methods like flow cytometry, bulk RNA sequencing, and single-cell RNA sequencing, she investigates the cellular and molecular changes in disease development and progression.</p>
+</section>
+<section id="education" class="level3">
+<h3 data-anchor-id="education">Education</h3>
+<p>Bachelor’s degree in Molecular Biology from University of Gothenburg Master’s degree in Molecular Biology from University of Gothenburg.</p>
+</section>
+<section id="personal-interests" class="level3">
+<h3 data-anchor-id="personal-interests">Personal Interests</h3>
+<p>In her spare time, Lina enjoys gaming, reading, and cooking.</p>
 
 
+</section>
 </main> 
   <hr class="about-sep">
    <div class="about-links">
@@ -215,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/linaoa99\.github\.io\/reproducible-research-quartoblog\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
