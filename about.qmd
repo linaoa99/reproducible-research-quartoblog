@@ -1,0 +1,17 @@
+---
+title: "About"
+subtitle: "Lina Andersson"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/lina-andersson-1a2853183/
+    - icon: github
+      text: Github
+      href: https://github.com/linaoa99
+
+---
+
+About this blog
