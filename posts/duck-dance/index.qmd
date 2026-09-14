@@ -1,0 +1,19 @@
+---
+title: "How to add a GIF"
+author: "Lina Andersson"
+date: "2026-09-14"
+categories: [Instructions]
+---
+
+Here, I learned how to add a GIF to a Quarto blog post. 
+
+![](duck-dance.gif){width="50%"}
+
+```{python}
+#| eval: false
+![](duck-dance.gif)
+```
+
+I also learned that you can add a GIF to a Quarto blog post by using the `![]()` syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.
+
+Isn't that great? It makes me wanna do aduck dance!

@@ -1,0 +1,12 @@
+{
+  "hash": "b816c0a8c2a927bac4e173bdbe7b3a4b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"How to add a GIF\"\nauthor: \"Lina Andersson\"\ndate: \"2026-09-14\"\ncategories: [Instructions]\n---\n\nHere, I learned how to add a GIF to a Quarto blog post. \n\n![](duck-dance.gif){width=\"50%\"}\n\n::: {#f409c545 .cell execution_count=1}\n``` {.python .cell-code}\n![](duck-dance.gif)\n```\n:::\n\n\nI also learned that you can add a GIF to a Quarto blog post by using the `![]()` syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.\n\nIsn't that great? It makes me wanna duck dance!\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
