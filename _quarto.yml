@@ -2,20 +2,17 @@ project:
   type: website
 
 website:
-  description: "A blog built with Quarto"
-  title: "Quarto Blog"
+  description: "A blog about reproducible research for newbie Lina"
+  title: "Lina's Blog"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: bluesky
-        href: https://bsky.app/
+        href: https://github.com/linaoa99
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: morph
     css: styles.css
 
 execute:
