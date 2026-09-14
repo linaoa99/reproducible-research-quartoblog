@@ -33,5 +33,12 @@
     "title": "How to add a GIF",
     "section": "",
     "text": "Here, I learned how to add a GIF to a Quarto blog post.\n\n\n![](duck-dance.gif)\n\nI also learned that you can add a GIF to a Quarto blog post by using the ![]() syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.\nIsn’t that great? It makes me wanna duck dance!"
+  },
+  {
+    "objectID": "posts/gif/index.html",
+    "href": "posts/gif/index.html",
+    "title": "How to add a GIF",
+    "section": "",
+    "text": "Here, I learned how to add a GIF to a Quarto blog post.\n\n\n![](duck-dance.gif)\n\nI also learned that you can add a GIF to a Quarto blog post by using the ![]() syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.\nIsn’t that great? It makes me wanna do aduck dance!"
   }
 ]
