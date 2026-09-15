@@ -15,8 +15,7 @@ This will create a new Quarto project with the necessary files and folder struct
 
 2. Next, start tracking your project with Git. Make sure you are in your project directory. You can do this by opening a terminal in your project directory and typing:
 
-```bash
-|# eval: false
+```{.bash}
 git init
 git add .
 git commit -m "Initial commit"
@@ -24,8 +23,7 @@ git commit -m "Initial commit"
 
 3. Create a new repository on GitHub and connect your local repository to it. You can do this by typing the following commands in your terminal:
 
-```bash
-|# eval: false
+```{.bash}
 git remote add origin <your-github-repo-url>
 git branch -M main
 git push -u origin main
@@ -37,27 +35,28 @@ You can now publish your blog using GitHub Pages, a website hosting service. <u>
 
 1. Make sure you are only rendering locally. You do this by freezing the blog to a static site by adding the following line to your `_quarto.yml` file:
 
+```{.bash}
 execute:
   freeze: auto
+```
 
 If you have executable code in your project you’ll notice that a `_freeze` directory has been created. This directory stores the results of computations and should be checked in to version control. Whenever you change a .qmd file with executable code, it will automatically be re-run during your next render and the updated computations will be stored in `_freeze`.
 
 2. Next, render your blog locally by typing the following command in your terminal:
 
-```bash
-|# eval: false
+```{.bash}
 quarto render
 ``` 
 
 3. Next, you need to configure the GitHub Pages deployment for subsequent invocations. You can do this by typing the following command in your terminal:
 
-```bash
-|# eval: false
+```{.bash}
 quarto publish gh-pages
 ```
 
 4. Add a "workflows" directory to your `.github` folder and create a new file called `publish.yml` in it. Add the following content unchanged into the `publish.yml` file:
 
+```{.bash}
 on:
   workflow_dispatch:
   push:
@@ -83,7 +82,7 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+```
 
 This file will contain the configuration for the GitHub Actions workflow that will automatically build and deploy your blog whenever you push changes to your repository.
 

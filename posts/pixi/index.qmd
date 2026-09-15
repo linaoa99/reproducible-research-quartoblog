@@ -16,8 +16,7 @@ In this post, I will show you how to use `Pixi` to create a reproducible environ
 
 Use the following command to install `Pixi` on your server. This will download and install the latest version of `Pixi`:
 
-```Bash
-#| eval: false
+```{.bash}
 wget -qO- https://pixi.sh/install.sh | sh
 ```
 
@@ -28,14 +27,13 @@ Next, you need to source your shell, you need to source the startup files, in Li
 
 Use the following command to create a new `Pixi` environment:
 
-```Bash
-#| eval: false
+```{.bash}
 pixi init lina_pixi_training -c conda-forge -c bioconda
 ```
 
 This will create a new environment called `lina_pixi_training` and install the necessary dependencies from the `conda-forge` and `bioconda` channels. The folder now contains a `pixi toml` file, which contains the environment specifications. You can edit this file to add or remove dependencies as needed. This will look something like this:
 
----
+```{.bash}
 [workspace]
 channels = ["conda-forge", "bioconda"] #Added channels - these are the sources we allow for our dependencies/ tools.
 name = "lina_pixi_training" #The name of the environment.
@@ -45,7 +43,7 @@ version = "0.1.0"
 [tasks] #This is where we can define tasks - interesting, but not covered in this course.
 
 [dependencies] #Here will be the list of tool installed within the environment (once we have added them).
----
+```
 
 In addition, the .gitignore and .gitattributes files are created automatically so that the environment can be version controlled.
 
@@ -56,17 +54,16 @@ Adding dependencies to the .toml file is telling Pixi to install the specified p
 
 To add a dependency, you can either edit the `pixi.toml` file directly, or use the command line. **Don't forget to cd into the environment directory first!** For example, to add `Quarto`, you can run:
 
-```Bash
-#| eval: false
+```{.bash}
 pixi add quarto
 ```
 
 This will add `Quarto` to the list of dependencies in the `pixi.toml` file, and install it in the server environment ONLY. The `pixi.toml` file will now look like this:
 
----
+```{.bash}
 [dependencies] 
 quarto = ">=1.9.38,<2"
----
+```
 
 Once you have used the environment, or added a dependency/tool to it, you will find yet another file, called pixi.lock, which contains the exact versions of all dependencies in the environment. This file is important for reproducibility, as it allows others to recreate the exact same environment.
 
@@ -77,8 +74,7 @@ OBS! Do not delete the .toml or .lock files, or you will break your environment!
 
 Use `Pixi` to run a tool in the environment. For example, to run `Quarto`, you can use the following command:
 
-```Bash
-#| eval: false
+```{.bash}
 pixi run quarto --help
 ```
 
