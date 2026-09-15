@@ -4,3 +4,12 @@
   color: black;
   font-style: bold;
 }
+
+/* När ett inlägg saknar bild i Quarto-listningen */
+.quarto-post.image-not-found .body {
+  width: 100%;
+}
+
+.quarto-post.image-not-found .thumbnail {
+  display: none;
+}

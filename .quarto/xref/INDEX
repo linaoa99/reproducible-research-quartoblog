@@ -22,5 +22,11 @@
   },
   "posts/publication/index.qmd": {
     "index.html": "654bce1d"
+  },
+  "posts/pixi/index.qmd": {
+    "index.html": "c163b465"
+  },
+  "posts/pixi_qc/index.qmd": {
+    "index.html": "c85264e2"
   }
 }
