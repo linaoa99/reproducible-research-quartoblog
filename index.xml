@@ -10,7 +10,133 @@
 <atom:link href="https://linaoa99.github.io/reproducible-research-quartoblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about reproducible research for newbie Lina</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Mon, 14 Sep 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 15 Sep 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>How to use Pixi for environment management</title>
+  <dc:creator>Lina Andersson</dc:creator>
+  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with <code>Pixi</code> environments.</p>
+<p><code>Windows</code> doesn’t really support most bioinformatics tools, or your computer might run a different version of a specific tool than mine. One way to solve this, and make research more reproducible, is through the use of environments.</p>
+<p>In this post, I will show you how to use <code>Pixi</code> to create a reproducible environment for your bioinformatics tools. Since, we are working on a Linuxserver, we will use the command line to install and use <code>Pixi</code>.</p>
+<section id="install-pixi" class="level3">
+<h3 class="anchored" data-anchor-id="install-pixi">Install Pixi</h3>
+<p>Use the following command to install <code>Pixi</code> on your server. This will download and install the latest version of <code>Pixi</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">wget</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-qO-</span> https://pixi.sh/install.sh <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sh</span></span></code></pre></div></div>
+<p>Next, you need to source your shell, you need to source the startup files, in Linux it’s the source <code>~/.bashrc</code> file.</p>
+</section>
+<section id="create-a-pixi-environment" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-pixi-environment">Create a Pixi Environment</h3>
+<p>Use the following command to create a new <code>Pixi</code> environment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> init lina_pixi_training <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> conda-forge <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> bioconda</span></code></pre></div></div>
+<p>This will create a new environment called <code>lina_pixi_training</code> and install the necessary dependencies from the <code>conda-forge</code> and <code>bioconda</code> channels. The folder now contains a <code>pixi toml</code> file, which contains the environment specifications. You can edit this file to add or remove dependencies as needed. This will look something like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[workspace]</span></span>
+<span id="cb3-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">channels</span> = [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"conda-forge"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bioconda"</span>] <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Added channels - these are the sources we allow for our dependencies/ tools.</span></span>
+<span id="cb3-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">name</span> = <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lina_pixi_training"</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#The name of the environment.</span></span>
+<span id="cb3-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">platforms</span> = <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"linux-64"</span><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">]</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Operating system the environment is optimised for</span></span>
+<span id="cb3-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">version</span> = <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0.1.0"</span> </span>
+<span id="cb3-6"></span>
+<span id="cb3-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[tasks]</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#This is where we can define tasks - interesting, but not covered in this course.</span></span>
+<span id="cb3-8"></span>
+<span id="cb3-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[dependencies]</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Here will be the list of tool installed within the environment (once we have added them).</span></span></code></pre></div></div>
+<p>In addition, the .gitignore and .gitattributes files are created automatically so that the environment can be version controlled.</p>
+</section>
+<section id="adding-dependencies-in-pixi.toml" class="level3">
+<h3 class="anchored" data-anchor-id="adding-dependencies-in-pixi.toml">Adding dependencies in Pixi.toml</h3>
+<p>Adding dependencies to the .toml file is telling Pixi to install the specified program for you. However, instead of installing it globally, it only gets installed in the environment.</p>
+<p>To add a dependency, you can either edit the <code>pixi.toml</code> file directly, or use the command line. <strong>Don’t forget to cd into the environment directory first!</strong> For example, to add <code>Quarto</code>, you can run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> add quarto</span></code></pre></div></div>
+<p>This will add <code>Quarto</code> to the list of dependencies in the <code>pixi.toml</code> file, and install it in the server environment ONLY. The <code>pixi.toml</code> file will now look like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[dependencies]</span> </span>
+<span id="cb5-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">quarto</span> = <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&gt;=1.9.38,&lt;2"</span></span></code></pre></div></div>
+<p>Once you have used the environment, or added a dependency/tool to it, you will find yet another file, called pixi.lock, which contains the exact versions of all dependencies in the environment. This file is important for reproducibility, as it allows others to recreate the exact same environment.</p>
+<p>OBS! Do not delete the .toml or .lock files, or you will break your environment!</p>
+</section>
+<section id="running-a-tool-with-pixi" class="level3">
+<h3 class="anchored" data-anchor-id="running-a-tool-with-pixi">Running a tool with Pixi</h3>
+<p>Use <code>Pixi</code> to run a tool in the environment. For example, to run <code>Quarto</code>, you can use the following command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run quarto <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--help</span></span></code></pre></div></div>
+<p>Here, the –help flag will show you the help message for <code>Quarto</code>. You can replace <code>--help</code> with any other command or flag that you want to use with <code>Quarto</code>.</p>
+<p>To use other tools, simply substitute quarto with the package you’ve added.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Instructions</category>
+  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi/</guid>
+  <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>How to add a GIF</title>
   <dc:creator>Lina Andersson</dc:creator>
@@ -43,7 +169,7 @@ font-style: inherit;">-</span>dance.gif)</span></code></pre></div></div>
 <item>
   <title>How to Publish a Quarto Blog via GitHub</title>
   <dc:creator>Lina Andersson</dc:creator>
-  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/post-with-code/</link>
+  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/publication/</link>
   <description><![CDATA[ 
 
 
@@ -60,19 +186,13 @@ font-style: inherit;">-</span>dance.gif)</span></code></pre></div></div>
 <ol start="2" type="1">
 <li>Next, start tracking your project with Git. Make sure you are in your project directory. You can do this by opening a terminal in your project directory and typing:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># eval: false</span></span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> init</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> add .</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
 background-color: null;
@@ -82,25 +202,19 @@ font-style: inherit;">"Initial commit"</span></span></code></pre></div></div>
 <ol start="3" type="1">
 <li>Create a new repository on GitHub and connect your local repository to it. You can do this by typing the following commands in your terminal:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># eval: false</span></span>
-<span id="cb2-2"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> remote add origin <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;</span>your-github-repo-url<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span></span>
-<span id="cb2-3"><span class="fu" style="color: #4758AB;
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> branch <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-M</span> main</span>
-<span id="cb2-4"><span class="fu" style="color: #4758AB;
+<span id="cb2-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> push <span class="at" style="color: #657422;
 background-color: null;
@@ -112,47 +226,101 @@ font-style: inherit;">-u</span> origin main</span></code></pre></div></div>
 <ol type="1">
 <li>Make sure you are only rendering locally. You do this by freezing the blog to a static site by adding the following line to your <code>_quarto.yml</code> file:</li>
 </ol>
-<p>execute: freeze: auto</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">execute:</span></span>
+<span id="cb3-2">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">freeze:</span> auto</span></code></pre></div></div>
 <p>If you have executable code in your project you’ll notice that a <code>_freeze</code> directory has been created. This directory stores the results of computations and should be checked in to version control. Whenever you change a .qmd file with executable code, it will automatically be re-run during your next render and the updated computations will be stored in <code>_freeze</code>.</p>
 <ol start="2" type="1">
 <li>Next, render your blog locally by typing the following command in your terminal:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># eval: false</span></span>
-<span id="cb3-2"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">quarto</span> render</span></code></pre></div></div>
 <ol start="3" type="1">
 <li>Next, you need to configure the GitHub Pages deployment for subsequent invocations. You can do this by typing the following command in your terminal:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># eval: false</span></span>
-<span id="cb4-2"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">quarto</span> publish gh-pages</span></code></pre></div></div>
 <ol start="4" type="1">
 <li>Add a “workflows” directory to your <code>.github</code> folder and create a new file called <code>publish.yml</code> in it. Add the following content unchanged into the <code>publish.yml</code> file:</li>
 </ol>
-<p>on: workflow_dispatch: push: branches: main</p>
-<p>name: Quarto Publish</p>
-<p>jobs: build-deploy: runs-on: ubuntu-latest permissions: contents: write steps: - name: Check out repository uses: actions/checkout@v7</p>
-<pre><code>  - name: Set up Quarto
-    uses: quarto-dev/quarto-actions/setup@v2
-
-  - name: Render and Publish
-    uses: quarto-dev/quarto-actions/publish@v2
-    with:
-      target: gh-pages
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">on:</span></span>
+<span id="cb6-2">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">workflow_dispatch:</span></span>
+<span id="cb6-3">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">push:</span></span>
+<span id="cb6-4">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">branches:</span> main</span>
+<span id="cb6-5"></span>
+<span id="cb6-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">name:</span> Quarto Publish</span>
+<span id="cb6-7"></span>
+<span id="cb6-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">jobs:</span></span>
+<span id="cb6-9">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">build-deploy:</span></span>
+<span id="cb6-10">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">runs-on:</span> ubuntu-latest</span>
+<span id="cb6-11">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">permissions:</span></span>
+<span id="cb6-12">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">contents:</span> write</span>
+<span id="cb6-13">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">steps:</span></span>
+<span id="cb6-14">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">-</span> name: Check out repository</span>
+<span id="cb6-15">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">uses:</span> actions/checkout@v7</span>
+<span id="cb6-16"></span>
+<span id="cb6-17">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">-</span> name: Set up Quarto</span>
+<span id="cb6-18">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">uses:</span> quarto-dev/quarto-actions/setup@v2</span>
+<span id="cb6-19"></span>
+<span id="cb6-20">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">-</span> name: Render and Publish</span>
+<span id="cb6-21">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">uses:</span> quarto-dev/quarto-actions/publish@v2</span>
+<span id="cb6-22">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">with:</span></span>
+<span id="cb6-23">          <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">target:</span> gh-pages</span>
+<span id="cb6-24">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">env:</span></span>
+<span id="cb6-25">          <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">GITHUB_TOKEN:</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">{ secrets.GITHUB_TOKEN </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span>}</span></code></pre></div></div>
 <p>This file will contain the configuration for the GitHub Actions workflow that will automatically build and deploy your blog whenever you push changes to your repository.</p>
 <ol start="5" type="1">
 <li>Finally, push your changes to GitHub</li>
@@ -165,7 +333,7 @@ font-style: inherit;">quarto</span> publish gh-pages</span></code></pre></div></
   <category>Instructions</category>
   <category>Quarto</category>
   <category>GitHub</category>
-  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/post-with-code/</guid>
+  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/publication/</guid>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
