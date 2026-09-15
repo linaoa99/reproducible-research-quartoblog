@@ -134,7 +134,30 @@ font-style: inherit;">--help</span></span></code></pre></div></div>
 
  ]]></description>
   <category>Instructions</category>
+  <category>Pixi</category>
   <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi/</guid>
+  <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>How to run Quality Control using Pixi</title>
+  <dc:creator>Lina Andersson</dc:creator>
+  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi_qc/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will show you how to run QC using <code>Pixi</code> environments, <code>FastQC</code> and <code>MultiQC</code>.</p>
+<p>Poor quality sequencing data can be caused by: - Sample contamination/degradation - Improper library preparation - Technical issues during sequencing</p>
+
+
+
+ ]]></description>
+  <category>Instructions</category>
+  <category>QC</category>
+  <category>Pixi</category>
+  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi_qc/</guid>
   <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
 </item>
 <item>
