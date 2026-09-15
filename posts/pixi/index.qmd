@@ -1,0 +1,87 @@
+---
+title: "How to use Pixi for environment management"
+subtitle: "Pixi for working on a remote server"
+author: "Lina Andersson"
+date: "2026-09-15"
+categories: [Instructions]
+---
+
+Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with `Pixi` environments.
+
+`Windows` doesn’t really support most bioinformatics tools, or your computer might run a different version of a specific tool than mine. One way to solve this, and make research more reproducible, is through the use of environments.
+
+In this post, I will show you how to use `Pixi` to create a reproducible environment for your bioinformatics tools. Since, we are working on a Linuxserver, we will use the command line to install and use `Pixi`. 
+
+### Install Pixi
+
+Use the following command to install `Pixi` on your server. This will download and install the latest version of `Pixi`:
+
+```Bash
+#| eval: false
+wget -qO- https://pixi.sh/install.sh | sh
+```
+
+Next, you need to source your shell, you need to source the startup files, in Linux it’s the source `~/.bashrc` file.
+
+
+### Create a Pixi Environment
+
+Use the following command to create a new `Pixi` environment:
+
+```Bash
+#| eval: false
+pixi init lina_pixi_training -c conda-forge -c bioconda
+```
+
+This will create a new environment called `lina_pixi_training` and install the necessary dependencies from the `conda-forge` and `bioconda` channels. The folder now contains a `pixi toml` file, which contains the environment specifications. You can edit this file to add or remove dependencies as needed. This will look something like this:
+
+---
+[workspace]
+channels = ["conda-forge", "bioconda"] #Added channels - these are the sources we allow for our dependencies/ tools.
+name = "lina_pixi_training" #The name of the environment.
+platforms = ["linux-64"] #Operating system the environment is optimised for
+version = "0.1.0" 
+
+[tasks] #This is where we can define tasks - interesting, but not covered in this course.
+
+[dependencies] #Here will be the list of tool installed within the environment (once we have added them).
+---
+
+In addition, the .gitignore and .gitattributes files are created automatically so that the environment can be version controlled.
+
+
+### Adding dependencies in Pixi.toml
+
+Adding dependencies to the .toml file is telling Pixi to install the specified program for you. However, instead of installing it globally, it only gets installed in the environment.
+
+To add a dependency, you can either edit the `pixi.toml` file directly, or use the command line. **Don't forget to cd into the environment directory first!** For example, to add `Quarto`, you can run:
+
+```Bash
+#| eval: false
+pixi add quarto
+```
+
+This will add `Quarto` to the list of dependencies in the `pixi.toml` file, and install it in the server environment ONLY. The `pixi.toml` file will now look like this:
+
+---
+[dependencies] 
+quarto = ">=1.9.38,<2"
+---
+
+Once you have used the environment, or added a dependency/tool to it, you will find yet another file, called pixi.lock, which contains the exact versions of all dependencies in the environment. This file is important for reproducibility, as it allows others to recreate the exact same environment.
+
+OBS! Do not delete the .toml or .lock files, or you will break your environment!
+
+
+### Running a tool with Pixi
+
+Use `Pixi` to run a tool in the environment. For example, to run `Quarto`, you can use the following command:
+
+```Bash
+#| eval: false
+pixi run quarto --help
+```
+
+Here, the --help flag will show you the help message for `Quarto`. You can replace `--help` with any other command or flag that you want to use with `Quarto`.
+
+To use other tools, simply substitute quarto with the package you’ve added.
