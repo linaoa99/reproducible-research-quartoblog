@@ -1,0 +1,14 @@
+---
+title: "How to run Quality Control using Pixi"
+subtitle: "Using screen, slurm, pixi, FastQC and MultiQC"
+author: "Lina Andersson"
+date: "2026-09-15"
+categories: [Instructions, QC, Pixi]
+---
+
+In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will show you how to run QC using `Pixi` environments, `FastQC` and `MultiQC`.
+
+Poor quality sequencing data can be caused by:
+- Sample contamination/degradation
+- Improper library preparation
+- Technical issues during sequencing

@@ -3,7 +3,7 @@ title: "How to use Pixi for environment management"
 subtitle: "Pixi for working on a remote server"
 author: "Lina Andersson"
 date: "2026-09-15"
-categories: [Instructions]
+categories: [Instructions, Pixi]
 ---
 
 Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with `Pixi` environments.
