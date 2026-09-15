@@ -9,23 +9,35 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Lina’s Quarto Blog",
+    "title": "Blog Posts",
     "section": "",
-    "text": "How to use Pixi for environment management\n\n\nPixi for working on a remote server\n\n\n\nInstructions\n\nPixi\n\n\n\n\n\n\n\n\n\nSep 15, 2026\n\n\nLina Andersson\n\n\n\n\n\n\n\n\n\n\n\n\nHow to run Quality Control using Pixi\n\n\nUsing screen, slurm, pixi, FastQC and MultiQC\n\n\n\nInstructions\n\nQC\n\nPixi\n\n\n\n\n\n\n\n\n\nSep 15, 2026\n\n\nLina Andersson\n\n\n\n\n\n\n\n\n\n\n\n\nHow to add a GIF\n\n\n\n\n\n\nInstructions\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nLina Andersson\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Publish a Quarto Blog via GitHub\n\n\n\n\n\n\nInstructions\n\nQuarto\n\nGitHub\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nLina Andersson\n\n\n\n\n\nNo matching items"
+    "text": "How to use Pixi for environment management\n\n\nPixi for working on a remote server\n\n\n\nInstructions\n\nPixi\n\n\n\n\n\n\n\n\n\nSep 15, 2026\n\n\nLina Andersson\n\n\n\n\n\n\n\n\n\n\n\n\nHow to run Quality Control using Pixi\n\n\nUsing screen, slurm, pixi, FastQC and MultiQC\n\n\n\nInstructions\n\nQC\n\nPixi\n\n\n\n\n\n\n\n\n\nSep 15, 2026\n\n\nLina Andersson\n\n\n\n\n\n\n\n\n\n\n\n\nHow to add a GIF\n\n\n\n\n\n\nInstructions\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nLina Andersson\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Publish a Quarto Blog via GitHub\n\n\n\n\n\n\nInstructions\n\nQuarto\n\nGitHub\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nLina Andersson\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "About",
+      "Posts"
+    ]
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Professional Background\nLina Andersson is a PhD student in the Department of Pediatrics at Sahlgrenska Academy, University of Gothenburg, Sweden.\nHer research is focused on understanding the molecular mechanisms underlying juvenile idiopathic arthritis. Using methods like flow cytometry, bulk RNA sequencing, and single-cell RNA sequencing, she investigates the cellular and molecular changes in disease development and progression.\n\n\nEducation\nBachelor’s degree in Molecular Biology from University of Gothenburg\nMaster’s degree in Molecular Biology from University of Gothenburg.\n\n\nPersonal Interests\nIn her spare time, Lina enjoys gaming, reading, and cooking."
+    "text": "Professional Background\nLina Andersson is a PhD student in the Department of Pediatrics at Sahlgrenska Academy, University of Gothenburg, Sweden.\nHer research is focused on understanding the molecular mechanisms underlying juvenile idiopathic arthritis. Using methods like flow cytometry, bulk RNA sequencing, and single-cell RNA sequencing, she investigates the cellular and molecular changes in disease development and progression.\n\n\nEducation\nBachelor’s degree in Molecular Biology from University of Gothenburg\nMaster’s degree in Molecular Biology from University of Gothenburg.\n\n\nPersonal Interests\nIn her spare time, Lina enjoys gaming, reading, and cooking.",
+    "crumbs": [
+      "About"
+    ]
   },
   {
     "objectID": "posts/gif/index.html",
     "href": "posts/gif/index.html",
     "title": "How to add a GIF",
     "section": "",
-    "text": "Here, I learned how to add a GIF to a Quarto blog post.\n\n\n![](duck-dance.gif)\n\nI also learned that you can add a GIF to a Quarto blog post by using the ![]() syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.\nIsn’t that great? It makes me wanna do aduck dance!"
+    "text": "Here, I learned how to add a GIF to a Quarto blog post.\n\n\n![](duck-dance.gif)\n\nI also learned that you can add a GIF to a Quarto blog post by using the ![]() syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.\nIsn’t that great? It makes me wanna do aduck dance!",
+    "crumbs": [
+      "About",
+      "Posts",
+      "How to add a GIF"
+    ]
   },
   {
     "objectID": "posts/pixi/index.html",
@@ -39,6 +51,11 @@
     "href": "posts/pixi_qc/index.html",
     "title": "How to run Quality Control using Pixi",
     "section": "",
-    "text": "In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will show you how to run QC using Pixi environments, FastQC and MultiQC.\nPoor quality sequencing data can be caused by: - Sample contamination/degradation - Improper library preparation - Technical issues during sequencing"
+    "text": "In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will show you how to run QC using Pixi environments, FastQC and MultiQC.\nPoor quality sequencing data can be caused by: - Sample contamination/degradation - Improper library preparation - Technical issues during sequencing",
+    "crumbs": [
+      "About",
+      "Posts",
+      "How to run Quality Control using Pixi"
+    ]
   }
 ]

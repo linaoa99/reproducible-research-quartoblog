@@ -9,25 +9,17 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/linaoa99
-format:
-  html:
-    theme:
-      light: morph
-    css: styles.css
-    highlight-style: github
-
-execute:
-  freeze: auto
-
-sidebar:
-  search: true
-  style: "docked"
-  logo: 
-  content:
+  search: 
+   location: navbar
+  sidebar:
+   style: "docked"
+   logo: gu_logo.png
+   contents:
     - text: "About"
       href: about.qmd
-    - text: "Posts"
-      menu:
+    - section: "Posts"
+      href: index.qmd
+      contents:
         - text: "How to add a GIF"
           href: posts/gif/index.qmd
         - text: "How to Publish a Quarto Blog via GitHub"
@@ -36,5 +28,19 @@ sidebar:
           href: posts/pixi/index.qmd
         - text: "How to run Quality Control using Pixi"
           href: posts/pixi_qc/index.qmd
+
+format:
+  html:
+    theme: morph
+    toc: true
+    code-copy: true 
+    css: styles.css
+    highlight-style: github
+    code-overflow: wrap
+
+execute:
+  freeze: auto
+
+
 
 

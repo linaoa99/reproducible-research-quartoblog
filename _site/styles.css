@@ -5,11 +5,103 @@
   font-style: bold;
 }
 
-/* När ett inlägg saknar bild i Quarto-listningen */
-.quarto-post.image-not-found .body {
+#quarto-sidebar .sidebar-logo {
+  width: 150px;
+  height: auto;
+}
+
+#quarto-sidebar .sidebar-logo.light-content {
+  display: inline !important;
+}
+
+#quarto-sidebar .sidebar-logo.dark-content {
+  display: none !important;
+}
+
+.quarto-post:has(.listing-item-img-placeholder) .thumbnail {
+  display: none;
+}
+
+.quarto-post:has(.listing-item-img-placeholder) {
+  flex-direction: column;
+  gap: 0;
+}
+
+.quarto-post:has(.listing-item-img-placeholder) .body {
   width: 100%;
 }
 
-.quarto-post.image-not-found .thumbnail {
-  display: none;
+.quarto-post:has(.listing-item-img-placeholder) .metadata {
+  width: 100%;
 }
+
+.quarto-post {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 2em;
+  row-gap: 0.35em;
+  position: relative;
+}
+
+.quarto-post .body {
+  display: contents;
+}
+
+.quarto-post .listing-title {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.quarto-post .listing-subtitle {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.quarto-post .metadata {
+  grid-column: 1;
+  grid-row: 3;
+  padding-bottom: 0;
+  margin-bottom: 0.5em;
+}
+
+.quarto-post .listing-categories {
+  grid-column: 1;
+  grid-row: 4;
+  margin-bottom: 0.5em;
+}
+
+.quarto-post .listing-description {
+  grid-column: 1;
+  grid-row: 5;
+}
+
+.quarto-post .thumbnail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+}
+
+.quarto-post:not(:has(.listing-item-img-placeholder)) {
+  padding-right: calc(30% + 2em);
+}
+
+.quarto-post:has(.listing-item-img-placeholder) {
+  grid-template-columns: minmax(0, 1fr);
+  padding-right: 0;
+}
+
+@media (max-width: 767.98px) {
+  .quarto-post {
+    grid-template-columns: minmax(0, 1fr);
+    padding-right: 0;
+  }
+
+  .quarto-post .thumbnail {
+    position: static;
+    width: auto;
+    grid-column: 1;
+    grid-row: 6;
+  }
+}
+
