@@ -10,9 +10,111 @@
 <atom:link href="https://linaoa99.github.io/reproducible-research-quartoblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about reproducible research for newbie Lina</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Tue, 15 Sep 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 16 Sep 2026 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>How to use Pixi for environment management</title>
+  <title>Basics of Nextflow</title>
+  <dc:creator>Lina Andersson</dc:creator>
+  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a <code>workflow</code> or <code>pipeline</code>.</p>
+<p>Manual deployment of pipelines is not always the most effective path to take in cases of: * Many steps in your analysis * Many files needing processing * Files with different sizes; one takes a minute to run, another takes an hour…</p>
+<p>With the goal of automizing pipelines/workflows a software was made: <strong>workflow managers</strong>. What does it do? * Coordinates the deployment of the scripts in the appropriate sequence * Monitors the jobs * Handles the file transfers between scripts * Gathers the output * Handles re-execution of failed jobs for you * Can run containers -&gt; which eliminates software installation and version conflicts</p>
+<p>There are two workflow managers that are widely used: <strong>snakemake</strong> and <strong>nextflow</strong>.</p>
+<section id="nextflow-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="nextflow-pipeline">Nextflow pipeline</h3>
+<p>In practice, a Nextflow workflow is made by joining together different <code>processes</code>. Each can be written in any scripting language that can be executed by the Linux platform (Bash, Perl, Ruby, Python, etc.).</p>
+<p>Processes are executed independently and are isolated from each other, they only communicate via <code>channels</code>.</p>
+<p>In Nextflow there are two kinds of channels: <code>queue channels</code> and <code>value channels</code>: * <code>queue channel</code> is a non-blocking unidirectional FIFO queue which connects two processes, channel factories, or operators. * <code>value channel</code> also called singleton channel is bound to a single value and can be read an unlimited number of times without consuming its content.</p>
+<p>Any <code>process</code> can define one or more <code>channels</code> as an <code>input</code> and <code>output</code>.</p>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/nf_basic_expl.png" class="img-fluid" style="width:100.0%"></p>
+<p>Here is a <code>process block</code> that describes the picture above as part of a Nextflow pipeline:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">process</span> PROCESS_NAME{</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">input:</span></span>
+<span id="cb1-4">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">data</span> z</span>
+<span id="cb1-5">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">data</span> y</span>
+<span id="cb1-6">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">data</span> x</span>
+<span id="cb1-7"></span>
+<span id="cb1-8">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">//</span> directives</span>
+<span id="cb1-9">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">container</span></span>
+<span id="cb1-10"></span>
+<span id="cb1-11">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">script:</span></span>
+<span id="cb1-12">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">task1</span></span>
+<span id="cb1-13">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">task2</span></span>
+<span id="cb1-14">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">task3</span></span>
+<span id="cb1-15"></span>
+<span id="cb1-16">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">output:</span></span>
+<span id="cb1-17">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">output</span> x</span>
+<span id="cb1-18">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">output</span> y</span>
+<span id="cb1-19">      <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">output</span> z</span>
+<span id="cb1-20"><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<ul>
+<li><code>process</code> defines what command or script is executed</li>
+<li><code>executor</code> determines how that script is run in the target platform.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If not otherwise specified, processes are executed on the <code>local</code> computer. This is useful for: * Workflow development * Testing purposes</p>
+<p><strong>However</strong>, real-world computational workflows a high-performance computing (HPC) or cloud platform is often required.</p>
+</div>
+</div>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/nf.png" class="img-fluid" style="width:100.0%"></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Nextflow</category>
+  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/</guid>
+  <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Pixi for environment management</title>
   <dc:creator>Lina Andersson</dc:creator>
   <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi/</link>
   <description><![CDATA[ 
@@ -24,6 +126,7 @@
 <p>Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with <code>Pixi</code> environments.</p>
 <p><code>Windows</code> doesn’t really support most bioinformatics tools, or your computer might run a different version of a specific tool than mine. One way to solve this, and make research more reproducible, is through the use of environments.</p>
 <p>In this post, I will show you how to use <code>Pixi</code> to create a reproducible environment for your bioinformatics tools. Since, we are working on a Linuxserver, we will use the command line to install and use <code>Pixi</code>.</p>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi/pixi.png" class="img-fluid" style="width:50.0%"></p>
 <section id="install-pixi" class="level3">
 <h3 class="anchored" data-anchor-id="install-pixi">Install Pixi</h3>
 <p>Use the following command to install <code>Pixi</code> on your server. This will download and install the latest version of <code>Pixi</code>:</p>
@@ -139,7 +242,7 @@ font-style: inherit;">--help</span></span></code></pre></div></div>
   <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>How to run Quality Control using Pixi</title>
+  <title>Quality Control using Pixi</title>
   <dc:creator>Lina Andersson</dc:creator>
   <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi_qc/</link>
   <description><![CDATA[ 
@@ -190,7 +293,7 @@ font-style: inherit;">-</span>dance.gif)</span></code></pre></div></div>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>How to Publish a Quarto Blog via GitHub</title>
+  <title>Publish a Quarto Blog via GitHub</title>
   <dc:creator>Lina Andersson</dc:creator>
   <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/publication/</link>
   <description><![CDATA[ 
@@ -200,6 +303,7 @@ font-style: inherit;">-</span>dance.gif)</span></code></pre></div></div>
 
 
 <p>When first making a Quarto blog, it can be a bit tricky to figure out how to publish it online. In this post, I will walk you through the steps to publish your Quarto blog via GitHub Pages.</p>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/publication/quarto_blog.jpg" class="img-fluid" style="width:100.0%"></p>
 <section id="prerequisites" class="level3">
 <h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
 <ol type="1">

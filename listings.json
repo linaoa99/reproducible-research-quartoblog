@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/piping/index.html",
       "/posts/pixi/index.html",
       "/posts/pixi_qc/index.html",
       "/posts/gif/index.html",

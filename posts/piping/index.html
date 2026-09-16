@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Lina Andersson">
-<meta name="dcterms.date" content="2026-09-15">
+<meta name="dcterms.date" content="2026-09-16">
 
-<title>Pixi for environment management – Lina’s Blog</title>
+<title>Basics of Nextflow – Lina’s Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -151,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/pixi/index.html">How to use Pixi for environment managemen</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Basics of Nextflow</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -160,12 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/pixi/index.html">How to use Pixi for environment managemen</a></li></ol></nav>
-      <h1 class="title">Pixi for environment management</h1>
-            <p class="subtitle lead">Pixi for working on a remote server</p>
+    <div class="quarto-title column-body">
+      <h1 class="title">Basics of Nextflow</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Instructions</div>
-                <div class="quarto-category">Pixi</div>
+                <div class="quarto-category">Nextflow</div>
               </div>
                   </div>
   </div>
@@ -183,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 15, 2026</p>
+        <p class="date">September 16, 2026</p>
       </div>
     </div>
     
@@ -231,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/pixi/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/pixi/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to use Pixi for environment managemen</span></a>
   </div>
 </li>
@@ -253,10 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-pixi" id="toc-install-pixi" class="nav-link active" data-scroll-target="#install-pixi">Install Pixi</a></li>
-  <li><a href="#create-a-pixi-environment" id="toc-create-a-pixi-environment" class="nav-link" data-scroll-target="#create-a-pixi-environment">Create a Pixi Environment</a></li>
-  <li><a href="#adding-dependencies-in-pixi.toml" id="toc-adding-dependencies-in-pixi.toml" class="nav-link" data-scroll-target="#adding-dependencies-in-pixi.toml">Adding dependencies in Pixi.toml</a></li>
-  <li><a href="#running-a-tool-with-pixi" id="toc-running-a-tool-with-pixi" class="nav-link" data-scroll-target="#running-a-tool-with-pixi">Running a tool with Pixi</a></li>
+  <li><a href="#nextflow-pipeline" id="toc-nextflow-pipeline" class="nav-link active" data-scroll-target="#nextflow-pipeline">Nextflow pipeline</a></li>
   </ul>
 </nav>
     </div>
@@ -267,49 +262,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with <code>Pixi</code> environments.</p>
-<p><code>Windows</code> doesn’t really support most bioinformatics tools, or your computer might run a different version of a specific tool than mine. One way to solve this, and make research more reproducible, is through the use of environments.</p>
-<p>In this post, I will show you how to use <code>Pixi</code> to create a reproducible environment for your bioinformatics tools. Since, we are working on a Linuxserver, we will use the command line to install and use <code>Pixi</code>.</p>
-<p><img src="pixi.png" class="img-fluid" style="width:50.0%"></p>
-<section id="install-pixi" class="level3">
-<h3 class="anchored" data-anchor-id="install-pixi">Install Pixi</h3>
-<p>Use the following command to install <code>Pixi</code> on your server. This will download and install the latest version of <code>Pixi</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-qO-</span> https://pixi.sh/install.sh <span class="kw">|</span> <span class="fu">sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Next, you need to source your shell, you need to source the startup files, in Linux it’s the source <code>~/.bashrc</code> file.</p>
-</section>
-<section id="create-a-pixi-environment" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-pixi-environment">Create a Pixi Environment</h3>
-<p>Use the following command to create a new <code>Pixi</code> environment:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> init lina_pixi_training <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will create a new environment called <code>lina_pixi_training</code> and install the necessary dependencies from the <code>conda-forge</code> and <code>bioconda</code> channels. The folder now contains a <code>pixi toml</code> file, which contains the environment specifications. You can edit this file to add or remove dependencies as needed. This will look something like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[workspace]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">channels</span> = [<span class="st">"conda-forge"</span>, <span class="st">"bioconda"</span>] <span class="co">#Added channels - these are the sources we allow for our dependencies/ tools.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">name</span> = <span class="st">"lina_pixi_training"</span> <span class="co">#The name of the environment.</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">platforms</span> = <span class="pp">[</span><span class="st">"linux-64"</span><span class="pp">]</span> <span class="co">#Operating system the environment is optimised for</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">version</span> = <span class="st">"0.1.0"</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[tasks]</span> <span class="co">#This is where we can define tasks - interesting, but not covered in this course.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[dependencies]</span> <span class="co">#Here will be the list of tool installed within the environment (once we have added them).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In addition, the .gitignore and .gitattributes files are created automatically so that the environment can be version controlled.</p>
-</section>
-<section id="adding-dependencies-in-pixi.toml" class="level3">
-<h3 class="anchored" data-anchor-id="adding-dependencies-in-pixi.toml">Adding dependencies in Pixi.toml</h3>
-<p>Adding dependencies to the .toml file is telling Pixi to install the specified program for you. However, instead of installing it globally, it only gets installed in the environment.</p>
-<p>To add a dependency, you can either edit the <code>pixi.toml</code> file directly, or use the command line. <strong>Don’t forget to cd into the environment directory first!</strong> For example, to add <code>Quarto</code>, you can run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> add quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will add <code>Quarto</code> to the list of dependencies in the <code>pixi.toml</code> file, and install it in the server environment ONLY. The <code>pixi.toml</code> file will now look like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[dependencies]</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> = <span class="st">"&gt;=1.9.38,&lt;2"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Once you have used the environment, or added a dependency/tool to it, you will find yet another file, called pixi.lock, which contains the exact versions of all dependencies in the environment. This file is important for reproducibility, as it allows others to recreate the exact same environment.</p>
-<p>OBS! Do not delete the .toml or .lock files, or you will break your environment!</p>
-</section>
-<section id="running-a-tool-with-pixi" class="level3">
-<h3 class="anchored" data-anchor-id="running-a-tool-with-pixi">Running a tool with Pixi</h3>
-<p>Use <code>Pixi</code> to run a tool in the environment. For example, to run <code>Quarto</code>, you can use the following command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run quarto <span class="at">--help</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here, the –help flag will show you the help message for <code>Quarto</code>. You can replace <code>--help</code> with any other command or flag that you want to use with <code>Quarto</code>.</p>
-<p>To use other tools, simply substitute quarto with the package you’ve added.</p>
+<p>Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a <code>workflow</code> or <code>pipeline</code>.</p>
+<p>Manual deployment of pipelines is not always the most effective path to take in cases of: * Many steps in your analysis * Many files needing processing * Files with different sizes; one takes a minute to run, another takes an hour…</p>
+<p>With the goal of automizing pipelines/workflows a software was made: <strong>workflow managers</strong>. What does it do? * Coordinates the deployment of the scripts in the appropriate sequence * Monitors the jobs * Handles the file transfers between scripts * Gathers the output * Handles re-execution of failed jobs for you * Can run containers -&gt; which eliminates software installation and version conflicts</p>
+<p>There are two workflow managers that are widely used: <strong>snakemake</strong> and <strong>nextflow</strong>.</p>
+<section id="nextflow-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="nextflow-pipeline">Nextflow pipeline</h3>
+<p>In practice, a Nextflow workflow is made by joining together different <code>processes</code>. Each can be written in any scripting language that can be executed by the Linux platform (Bash, Perl, Ruby, Python, etc.).</p>
+<p>Processes are executed independently and are isolated from each other, they only communicate via <code>channels</code>.</p>
+<p>In Nextflow there are two kinds of channels: <code>queue channels</code> and <code>value channels</code>: * <code>queue channel</code> is a non-blocking unidirectional FIFO queue which connects two processes, channel factories, or operators. * <code>value channel</code> also called singleton channel is bound to a single value and can be read an unlimited number of times without consuming its content.</p>
+<p>Any <code>process</code> can define one or more <code>channels</code> as an <code>input</code> and <code>output</code>.</p>
+<p><img src="nf_basic_expl.png" class="img-fluid" style="width:100.0%"></p>
+<p>Here is a <code>process block</code> that describes the picture above as part of a Nextflow pipeline:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">process</span> PROCESS_NAME{</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">input:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="ex">data</span> z</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="ex">data</span> y</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="ex">data</span> x</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> directives</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">container</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">script:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">task1</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="ex">task2</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="ex">task3</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output:</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="ex">output</span> x</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      <span class="ex">output</span> y</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      <span class="ex">output</span> z</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>process</code> defines what command or script is executed</li>
+<li><code>executor</code> determines how that script is run in the target platform.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If not otherwise specified, processes are executed on the <code>local</code> computer. This is useful for: * Workflow development * Testing purposes</p>
+<p><strong>However</strong>, real-world computational workflows a high-performance computing (HPC) or cloud platform is often required.</p>
+</div>
+</div>
+<p><img src="nf.png" class="img-fluid" style="width:100.0%"></p>
 
 
 </section>
