@@ -1,5 +1,5 @@
 ---
-title: "How to use Pixi for environment management"
+title: "Pixi for environment management"
 subtitle: "Pixi for working on a remote server"
 author: "Lina Andersson"
 date: "2026-09-15"
@@ -11,6 +11,8 @@ Differing software versions and dependencies break reproducibility. We solve thi
 `Windows` doesn’t really support most bioinformatics tools, or your computer might run a different version of a specific tool than mine. One way to solve this, and make research more reproducible, is through the use of environments.
 
 In this post, I will show you how to use `Pixi` to create a reproducible environment for your bioinformatics tools. Since, we are working on a Linuxserver, we will use the command line to install and use `Pixi`. 
+
+![](pixi.png){width="50%"}
 
 ### Install Pixi
 

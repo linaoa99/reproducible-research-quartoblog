@@ -1,5 +1,5 @@
 ---
-title: "How to run Quality Control using Pixi"
+title: "Quality Control using Pixi"
 subtitle: "Using screen, slurm, pixi, FastQC and MultiQC"
 author: "Lina Andersson"
 date: "2026-09-15"

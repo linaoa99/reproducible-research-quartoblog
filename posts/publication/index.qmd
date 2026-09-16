@@ -1,11 +1,13 @@
 ---
-title: "How to Publish a Quarto Blog via GitHub"
+title: "Publish a Quarto Blog via GitHub"
 author: "Lina Andersson"
 date: "2026-09-14"
 categories: [Instructions, Quarto, GitHub]
 ---
 
 When first making a Quarto blog, it can be a bit tricky to figure out how to publish it online. In this post, I will walk you through the steps to publish your Quarto blog via GitHub Pages.
+
+![](quarto_blog.jpg){width="100%"}
 
 ### Prerequisites
 
