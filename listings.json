@@ -4,10 +4,10 @@
     "items": [
       "/posts/nf_core/index.html",
       "/posts/piping/index.html",
-      "/posts/pixi/index.html",
       "/posts/pixi_qc/index.html",
-      "/posts/gif/index.html",
-      "/posts/publication/index.html"
+      "/posts/pixi/index.html",
+      "/posts/publication/index.html",
+      "/posts/gif/index.html"
     ]
   }
 ]
