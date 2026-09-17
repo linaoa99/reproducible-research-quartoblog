@@ -19,16 +19,19 @@ website:
       href: about.qmd
     - section: "Posts"
       href: index.qmd
-      contents:
-        - text: "How to add a GIF"
-          href: posts/gif/index.qmd
-        - text: "How to Publish a Quarto Blog via GitHub"
-          href: posts/publication/index.qmd
-        - text: "How to use Pixi for environment managemen"
-          href: posts/pixi/index.qmd
+      contents: 
+        - text: "Pre-made Pipelines in nf-core"
+          href: posts/nf_core/index.qmd
+        - text: "Basics of Nextflow"
+          href: posts/piping/index.qmd
         - text: "How to run Quality Control using Pixi"
           href: posts/pixi_qc/index.qmd
-
+        - text: "How to use Pixi for environment management"
+          href: posts/pixi/index.qmd
+        - text: "How to Publish a Quarto Blog via GitHub"
+          href: posts/publication/index.qmd
+        - text: "How to add a GIF"
+          href: posts/gif/index.qmd
 format:
   html:
     theme: morph

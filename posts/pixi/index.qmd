@@ -2,7 +2,8 @@
 title: "Pixi for environment management"
 subtitle: "Pixi for working on a remote server"
 author: "Lina Andersson"
-date: "2026-09-15"
+date: "2026-09-15 13:12"
+date-format: "YYYY-MM-DD HH:mm"
 categories: [Instructions, Pixi]
 ---
 
