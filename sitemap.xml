@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://linaoa99.github.io/reproducible-research-quartoblog/posts/publication/index.html</loc>
-    <lastmod>2026-09-16T12:17:58.978Z</lastmod>
+    <lastmod>2026-09-17T14:28:13.205Z</lastmod>
   </url>
   <url>
     <loc>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi_qc/index.html</loc>
-    <lastmod>2026-09-16T12:17:58.978Z</lastmod>
+    <lastmod>2026-09-17T14:28:13.205Z</lastmod>
   </url>
   <url>
-    <loc>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi/index.html</loc>
-    <lastmod>2026-09-16T12:17:58.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://linaoa99.github.io/reproducible-research-quartoblog/index.html</loc>
-    <lastmod>2026-09-16T12:17:58.971Z</lastmod>
+    <loc>https://linaoa99.github.io/reproducible-research-quartoblog/posts/nf_core/index.html</loc>
+    <lastmod>2026-09-17T14:28:13.200Z</lastmod>
   </url>
   <url>
     <loc>https://linaoa99.github.io/reproducible-research-quartoblog/about.html</loc>
-    <lastmod>2026-09-16T12:17:58.971Z</lastmod>
+    <lastmod>2026-09-17T14:28:13.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://linaoa99.github.io/reproducible-research-quartoblog/index.html</loc>
+    <lastmod>2026-09-17T14:28:13.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://linaoa99.github.io/reproducible-research-quartoblog/posts/pixi/index.html</loc>
+    <lastmod>2026-09-17T14:28:13.204Z</lastmod>
   </url>
   <url>
     <loc>https://linaoa99.github.io/reproducible-research-quartoblog/posts/gif/index.html</loc>
-    <lastmod>2026-09-16T12:17:58.977Z</lastmod>
+    <lastmod>2026-09-17T14:28:13.200Z</lastmod>
   </url>
   <url>
     <loc>https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/index.html</loc>
-    <lastmod>2026-09-16T12:17:58.977Z</lastmod>
+    <lastmod>2026-09-17T14:28:13.204Z</lastmod>
   </url>
 </urlset>

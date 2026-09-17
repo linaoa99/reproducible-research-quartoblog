@@ -10,7 +10,383 @@
 <atom:link href="https://linaoa99.github.io/reproducible-research-quartoblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about reproducible research for newbie Lina</description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Wed, 16 Sep 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 17 Sep 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Pre-made Pipelines in nf-core</title>
+  <dc:creator>Lina Andersson</dc:creator>
+  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/nf_core/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Most bioinformaticians don’t do the hard work of making their own pipelines from scratch. Instead, they use some flagship pipelines that have been developed by the <a href="https://nf-co.re/pipelines/"><code>nf-core</code></a> community! There are <strong>157 pipelines</strong> available.</p>
+<p><strong>Volunteers</strong> develop nextflow pipelines around a variety of bioinformatic data. All <code>nf-core</code> pipelines are open source and the source code is available on github.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please be aware that <code>nf-core</code> pipelines are developed and maintained (or not maintained) by the community. You cannot copy paste the pipelines on your own data, instead you should use it as a tool you need to understand. The responsibility for the end results is still yours, so you need to see if your data is suited for the analysis!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mind you, if your data is of bad quality it doesn’t matter if the pipeline fits. Please use <strong>QC</strong> on your data before using the pipeline!</p>
+</div>
+</div>
+<section id="how-do-i-know-how-to-use-the-pipelines" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-i-know-how-to-use-the-pipelines">How do I know how to use the Pipelines</h2>
+<p>The <code>nf-core</code> community has developed aids for you to understand their pipelines:</p>
+<ul>
+<li>Training material for all user classes</li>
+<li>Best practices for documentation</li>
+<li>Templates for development</li>
+<li>Good documentation following <code>nf-core</code> guidelines</li>
+<li><code>nf-core launcher</code> can be used to check your input, and automatically generate commands and configuration files</li>
+</ul>
+</section>
+<section id="what-information-is-contained-in-each-nf-core-section" class="level2">
+<h2 class="anchored" data-anchor-id="what-information-is-contained-in-each-nf-core-section">What information is contained in each nf-core section?</h2>
+<p>Under the <code>Usage</code> tab, you will find <strong>extensive information</strong> that describes the pipeline, including input information, the samplesheet.csv.</p>
+<p>Under the <code>Parameters</code> tab, you will find which parameters can be added to the pipeline and which <strong>parameters are necessary</strong>, e.g <code>--input</code> or <code>--email</code></p>
+<p>Under the <code>Output</code> tab, you will find the expected output produced by the pipeline. This is useful for <strong>output interpretation</strong> of what the pipeline produces.</p>
+</section>
+<section id="how-to-start-running-a-pipeline-from-nf-core" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-start-running-a-pipeline-from-nf-core">How to start running a pipeline from nf-core</h2>
+<section id="setup-your-pixi-environment-with-both-nextflowand-nf-core-with-the-following-commands" class="level3">
+<h3 class="anchored" data-anchor-id="setup-your-pixi-environment-with-both-nextflowand-nf-core-with-the-following-commands">1. Setup your pixi environment with both <code>nextflow</code>and <code>nf-core</code> with the following commands:</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> init nf_rnaseq_test <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> conda-forge <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> bioconda <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Makes a new project directory with a pixi environment containing conda-forge and bioconda</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> name_nextflow <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Enter the project directory</span></span>
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> add nextflow nf-core <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Adds nextflow and nf-core</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">screen</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> nf_core_training <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Opens a screen to apply our run to</span></span>
+<span id="cb1-8"></span>
+<span id="cb1-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow </span>
+<span id="cb1-10"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nf-core <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Run both</span></span>
+<span id="cb1-11"></span>
+<span id="cb1-12"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow run hello <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Test the pipeline called "hello"</span></span></code></pre></div></div>
+</section>
+<section id="configure-your-profile" class="level3">
+<h3 class="anchored" data-anchor-id="configure-your-profile">2. Configure your profile</h3>
+<p>There are two ways to configure your profile:</p>
+<ul>
+<li><strong>Manually create</strong> a <code>server.config</code> file (exchange “server” with the name of the server, e.g.&nbsp;hpc2n)</li>
+<li>Find the server profile you are using in <a href="https://nf-co.re/configs/"><strong>nf-core configs</strong></a>, then follow the instructions described</li>
+</ul>
+<p>A <code>server.config</code> file should look something like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Config profile for HPC2N</span></span>
+<span id="cb2-2"></span>
+<span id="cb2-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">params</span> {</span>
+<span id="cb2-4">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">config_profile_description</span> = <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Cluster profile for HPC2N'</span></span>
+<span id="cb2-5">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">config_profile_contact</span> = <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Lina Andersson'</span></span>
+<span id="cb2-6">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">config_profile_url</span> = <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'https://www.hpc2n.umu.se/'</span></span>
+<span id="cb2-7">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">project</span> = null <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Fill in the project name of our project (can be found in SUPR NAISS), e.g. 'hpc2ncourses2026-016' with single lines</span></span>
+<span id="cb2-8">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">clusterOptions</span> = null</span>
+<span id="cb2-9">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">max_memory</span> = 128.GB</span>
+<span id="cb2-10">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">max_cpus</span> = 28</span>
+<span id="cb2-11">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">max_time</span> = 168.h</span>
+<span id="cb2-12">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">email</span> = <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'lina.karlsen.andersson@gu.se'</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Fill in the email of the person who recieves updates on the run</span></span>
+<span id="cb2-13"><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb2-14"></span>
+<span id="cb2-15"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">singularity</span> {</span>
+<span id="cb2-16">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">enabled</span> = true <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Decides that containers can be used in this process</span></span>
+<span id="cb2-17"><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb2-18"></span>
+<span id="cb2-19"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">process</span> {</span>
+<span id="cb2-20">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">executor</span> = <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'slurm'</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Informs which executor used for the process</span></span>
+<span id="cb2-21">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">clusterOptions</span> = { <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-A </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$params</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.project </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${params</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.clusterOptions ?: ''</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> }</span>
+<span id="cb2-22"><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+</section>
+<section id="link-the-data-to-your-directory" class="level3">
+<h3 class="anchored" data-anchor-id="link-the-data-to-your-directory">3. Link the data to your directory</h3>
+<p>In order for <code>nf-core</code> and <code>nextflow</code> to find your data, you need to add them to the directory which contains all information for the pipeline to run. You can either: - Add your data into a subdirectory - Link your data from another directory into the working directory, using this command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ln</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-s</span> absolute_path_to_data/<span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span>fastq.gz .</span></code></pre></div></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t forget the . in the end!</p>
+</div>
+</div>
+</section>
+<section id="use-nf-core-launcher-to-build-a-json-file" class="level3">
+<h3 class="anchored" data-anchor-id="use-nf-core-launcher-to-build-a-json-file">4. Use nf-core launcher to build a JSON file</h3>
+<p>Here comes the hardest part, but fret not it’s simple when you resolve all issues once, which I will give notes on!</p>
+<p>In the pipeline chosen from <code>nf-core</code> you can use the <strong>launcher</strong>. It looks like this at the top of a chosen pipeline webpage:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/nf_core/nf_core_launcher.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Launcher from RNAseq pipeline</figcaption>
+</figure>
+</div>
+<p>When pressed you enter a page where you need to fill in a form with information that will all together build a JSON file: - <code>--name</code> is only necessary to fill in once you run your process more than the first time - <code>--profile</code> we can fill in if nf-core has the config/profile server we are using - <code>--work.dir</code> is automatically ./work, which doesn’t need to change unless you want another name the directory which will record the work processed during your pipeline run - <code>--resume</code> should be filled in as “Yes” just in case the run is cancelled somehow and you want to resume the run</p>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/nf_core/nf_core_nextflow_command_line_flags.png" class="img-fluid" style="width:100.0%"></p>
+<ul>
+<li><code>--input</code> defines the the path to the files used to run the pipeline on (your data), these files have to be formatted into a <code>.csv</code> file, follow instructions given for this in the launcher for this. The <code>.csv</code> file has to be specified in the end as well.</li>
+<li><code>--outdir</code> specifies the path to the directory in which your output will be generated, make a new directory for this</li>
+<li><code>--email</code> specifies the email adress which will recieve updates on the process</li>
+<li><code>--multiqc_title</code> we can fill in if we want the multiqc to have a specific title</li>
+</ul>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/nf_core/nf_core_input_output.png" class="img-fluid" style="width:100.0%"></p>
+<ul>
+<li><code>--genome</code> here you provide the reference genome, follow instructions on how to download the reference genome files which are necessary and then <strong>do not write anything in this field</strong></li>
+<li><code>--fasta</code> specifies the path to the directory in which your fasta file is in (which was downloaded from the reference genome)</li>
+<li><code>--gtf</code> specifies the path to the directory in which your gtf file is in (which was downloaded from the reference genome)</li>
+</ul>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/nf_core/nf_core_ref_genome.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In your <code>.csv</code> file remember to write the name of your sample, <strong>BUT</strong> write the absolute path to your <code>1.fastq.gz</code> and <code>2.fastq.gz</code> files, strandedness should be <code>auto</code></p>
+<p>Everything should be delimited with comma <strong>ONLY</strong>!</p>
+</div>
+</div>
+</section>
+<section id="create-a-json-file-from-launcher-information" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-json-file-from-launcher-information">5. Create a JSON file from launcher information</h3>
+<p>Once everything is filled in, click on <code>Launch</code> and you will be redirected to another page containing the information that is needed to be added into a JSON file.</p>
+<p>Create a file in the working directory called <code>nf-params.json</code> and fill it in with the information. We also need to add <code>"save_reference": true</code> and it should look something like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb4-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"input"</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\/proj\/nobackup\/repbio26\/lina\/nf_core_rnaseq\/samplesheet.csv"</span>,</span>
+<span id="cb4-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"outdir"</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\/proj\/nobackup\/repbio26\/lina\/nf_core_rnaseq\/output"</span>,</span>
+<span id="cb4-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"email"</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lina.karlsen.andersson@gu.se"</span>,</span>
+<span id="cb4-5">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"multiqc_title"</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rnaseq_multiqc_report"</span>,</span>
+<span id="cb4-6">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fasta"</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\/proj\/nobackup\/repbio26\/lina\/nf_core_rnaseq\/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz"</span>,</span>
+<span id="cb4-7">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gtf"</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\/proj\/nobackup\/repbio26\/lina\/nf_core_rnaseq\/Homo_sapiens.GRCh38.108.gtf.gz"</span>,</span>
+<span id="cb4-8">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"save_reference"</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">:</span> true</span>
+<span id="cb4-9"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span></code></pre></div></div>
+</section>
+<section id="run-the-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="run-the-pipeline">6. Run the pipeline</h3>
+<p>The <code>nf-core launcher</code> also gives us the run command, we only need to add two things to make it all work: <code>pixi run</code> at the start, and then <code>-c server.config</code> at the end:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow run nf-core/rnaseq <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> 3.26.0 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-resume</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-params-file</span> nf-params.json <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> server.config</span></code></pre></div></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All in all, this while pipeline build up takes a bit of time, but works magically once you have figured out what all the <strong>ERROR MESSAGES</strong> mean and solve the issue. Here are some issues we faced running RNAseq on some data:</p>
+<ol type="1">
+<li><p>After started run, <strong>ERROR</strong> linked to reference genome popped up: don’t include the ref_genome in your JSON file, the fasta and gtf file is enough</p></li>
+<li><p>After started run, <strong>ERROR</strong> happened that had us all confused, we thought it was server-related but was solvable after re-linking the data again by one of us students…</p></li>
+</ol>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/nf_core/nf_core_pipeline.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Overview of the RNAseq pipeline from nf-core</figcaption>
+</figure>
+</div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>nf-core</category>
+  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/nf_core/</guid>
+  <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Basics of Nextflow</title>
   <dc:creator>Lina Andersson</dc:creator>
@@ -264,7 +640,7 @@ font-style: inherit;">--help</span></span></code></pre></div></div>
   <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>How to add a GIF</title>
+  <title>Adding GIFs</title>
   <dc:creator>Lina Andersson</dc:creator>
   <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/gif/</link>
   <description><![CDATA[ 
@@ -275,7 +651,7 @@ font-style: inherit;">--help</span></span></code></pre></div></div>
 
 <p>Here, I learned how to add a GIF to a Quarto blog post.</p>
 <p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/gif/duck-dance.gif" class="img-fluid" style="width:50.0%"></p>
-<div id="e9efc190" class="cell" data-execution_count="1">
+<div id="90f44071" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>[](duck<span class="op" style="color: #5E5E5E;

@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/nf_core/index.html",
       "/posts/piping/index.html",
       "/posts/pixi/index.html",
       "/posts/pixi_qc/index.html",
