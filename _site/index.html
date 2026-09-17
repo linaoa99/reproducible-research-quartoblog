@@ -84,9 +84,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -140,7 +140,7 @@ window.Quarto = {
 <body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -181,7 +181,23 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Blog Posts</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -240,178 +256,119 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R2l0SHVi">GitHub <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW5zdHJ1Y3Rpb25z">Instructions <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UGl4aQ==">Pixi <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UUM=">QC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UXVhcnRv">Quarto <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="R2l0SHVi">GitHub <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW5zdHJ1Y3Rpb25z">Instructions <span class="quarto-category-count">(4)</span></div><div class="category" data-category="TmV4dGZsb3c=">Nextflow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmYtY29yZQ==">nf-core <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGl4aQ==">Pixi <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UUM=">QC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UXVhcnRv">Quarto <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blog Posts</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-body">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
 
 
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="SW5zdHJ1Y3Rpb25zJTJDUGl4aQ==" data-listing-date-sort="1789423200000" data-listing-file-modified-sort="1789543222962" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="509">
-<div class="thumbnail"><a href="./posts/pixi/index.html" class="no-external">
 
-<p class="card-img-top"><img loading='lazy' src="posts\pixi\pixi.png"  class="thumbnail-image card-img"/></p>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pixi/index.html" class="no-external">How to use Pixi for environment management</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pixi/index.html" class="no-external">Pixi for working on a remote server</a>
-</div>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('SW5zdHJ1Y3Rpb25z'); return false;">Instructions</div>
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGl4aQ=='); return false;">Pixi</div>
+<th>
+Date
+</th>
 
-</div>
-<div class="delink listing-description"><a href="./posts/pixi/index.html" class="no-external">
-Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with <code>Pixi</code> environments.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/pixi/index.html" class="no-external">
-<div class="listing-date">
-Sep 15, 2026
-</div>
-<div class="listing-author">
-Lina Andersson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="SW5zdHJ1Y3Rpb25zJTJDUUMlMkNQaXhp" data-listing-date-sort="1789423200000" data-listing-file-modified-sort="1789475542781" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56">
-<div class="thumbnail"><a href="./posts/pixi_qc/index.html" class="no-external">
+<th>
+Title
+</th>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<th>
+Author
+</th>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pixi_qc/index.html" class="no-external">How to run Quality Control using Pixi</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pixi_qc/index.html" class="no-external">Using screen, slurm, pixi, FastQC and MultiQC</a>
-</div>
-<div class="listing-categories">
+</tr>
+</thead>
+<tbody class="list">
 
-<div class="listing-category" onclick="window.quartoListingCategory('SW5zdHJ1Y3Rpb25z'); return false;">Instructions</div>
+<tr data-index="0" data-categories="bmYtY29yZQ==" data-listing-date-sort="1789596000000" data-listing-file-modified-sort="1789655168768" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1166" data-listing-title-sort="Pre-made Pipelines in nf-core" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 17, 2026</span>
+</td>
+<td>
+<a href="./posts/nf_core/index.html" class="title listing-title">Pre-made Pipelines in nf-core</a>
+</td>
+<td>
+<span class="listing-author">Lina Andersson</span>
+</td>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UUM='); return false;">QC</div>
+</tr>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGl4aQ=='); return false;">Pixi</div>
+<tr data-index="1" data-categories="TmV4dGZsb3c=" data-listing-date-sort="1789509600000" data-listing-file-modified-sort="1789560938386" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="392" data-listing-title-sort="Basics of Nextflow" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 16, 2026</span>
+</td>
+<td>
+<a href="./posts/piping/index.html" class="title listing-title">Basics of Nextflow</a>
+</td>
+<td>
+<span class="listing-author">Lina Andersson</span>
+</td>
 
-</div>
-<div class="delink listing-description"><a href="./posts/pixi_qc/index.html" class="no-external">
-In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will…<code></code><code></code><code></code>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/pixi_qc/index.html" class="no-external">
-<div class="listing-date">
-Sep 15, 2026
-</div>
-<div class="listing-author">
-Lina Andersson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="SW5zdHJ1Y3Rpb25z" data-listing-date-sort="1789336800000" data-listing-file-modified-sort="1789409475002" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94">
-<div class="thumbnail"><a href="./posts/gif/index.html" class="no-external">
+</tr>
 
-<p class="card-img-top"><img loading='lazy' src="posts\gif\duck-dance.gif"  class="thumbnail-image card-img"/></p>
+<tr data-index="2" data-categories="SW5zdHJ1Y3Rpb25zJTJDUGl4aQ==" data-listing-date-sort="1789423200000" data-listing-file-modified-sort="1789543609895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="509" data-listing-title-sort="Pixi for environment management" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 15, 2026</span>
+</td>
+<td>
+<a href="./posts/pixi/index.html" class="title listing-title">Pixi for environment management</a>
+</td>
+<td>
+<span class="listing-author">Lina Andersson</span>
+</td>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/gif/index.html" class="no-external">How to add a GIF</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/gif/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
+</tr>
 
-<div class="listing-category" onclick="window.quartoListingCategory('SW5zdHJ1Y3Rpb25z'); return false;">Instructions</div>
+<tr data-index="3" data-categories="SW5zdHJ1Y3Rpb25zJTJDUUMlMkNQaXhp" data-listing-date-sort="1789423200000" data-listing-file-modified-sort="1789543647928" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56" data-listing-title-sort="Quality Control using Pixi" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 15, 2026</span>
+</td>
+<td>
+<a href="./posts/pixi_qc/index.html" class="title listing-title">Quality Control using Pixi</a>
+</td>
+<td>
+<span class="listing-author">Lina Andersson</span>
+</td>
 
-</div>
-<div class="delink listing-description"><a href="./posts/gif/index.html" class="no-external">
-Here, I learned how to add a GIF to a Quarto blog post.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/gif/index.html" class="no-external">
-<div class="listing-date">
-Sep 14, 2026
-</div>
-<div class="listing-author">
-Lina Andersson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="SW5zdHJ1Y3Rpb25zJTJDUXVhcnRvJTJDR2l0SHVi" data-listing-date-sort="1789336800000" data-listing-file-modified-sort="1789542696469" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="502">
-<div class="thumbnail"><a href="./posts/publication/index.html" class="no-external">
+</tr>
 
-<p class="card-img-top"><img loading='lazy' src="posts\publication\quarto_blog.jpg"  class="thumbnail-image card-img"/></p>
+<tr data-index="4" data-categories="SW5zdHJ1Y3Rpb25z" data-listing-date-sort="1789336800000" data-listing-file-modified-sort="1789561626947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94" data-listing-title-sort="Adding GIFs" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 14, 2026</span>
+</td>
+<td>
+<a href="./posts/gif/index.html" class="title listing-title">Adding GIFs</a>
+</td>
+<td>
+<span class="listing-author">Lina Andersson</span>
+</td>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/publication/index.html" class="no-external">How to Publish a Quarto Blog via GitHub</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/publication/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
+</tr>
 
-<div class="listing-category" onclick="window.quartoListingCategory('SW5zdHJ1Y3Rpb25z'); return false;">Instructions</div>
+<tr data-index="5" data-categories="SW5zdHJ1Y3Rpb25zJTJDUXVhcnRvJTJDR2l0SHVi" data-listing-date-sort="1789336800000" data-listing-file-modified-sort="1789543665831" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="502" data-listing-title-sort="Publish a Quarto Blog via GitHub" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 14, 2026</span>
+</td>
+<td>
+<a href="./posts/publication/index.html" class="title listing-title">Publish a Quarto Blog via GitHub</a>
+</td>
+<td>
+<span class="listing-author">Lina Andersson</span>
+</td>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UXVhcnRv'); return false;">Quarto</div>
+</tr>
 
-<div class="listing-category" onclick="window.quartoListingCategory('R2l0SHVi'); return false;">GitHub</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/publication/index.html" class="no-external">
-When first making a Quarto blog, it can be a bit tricky to figure out how to publish it online. In this post, I will walk you through the steps to publish your Quarto blog…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/publication/index.html" class="no-external">
-<div class="listing-date">
-Sep 14, 2026
-</div>
-<div class="listing-author">
-Lina Andersson
-</div>
-</a>
-</div>
-</div>
-</div>
+</tbody>
+</table>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

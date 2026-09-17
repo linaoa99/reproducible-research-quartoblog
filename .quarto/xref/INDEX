@@ -28,5 +28,11 @@
   },
   "posts/pixi_qc/index.qmd": {
     "index.html": "c85264e2"
+  },
+  "posts/piping/index.qmd": {
+    "index.html": "4c85e977"
+  },
+  "posts/nf_core/index.qmd": {
+    "index.html": "fe106e27"
   }
 }
