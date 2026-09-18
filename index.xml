@@ -579,7 +579,7 @@ Note
 <item>
   <title>Basics of Nextflow</title>
   <dc:creator>Lina Andersson</dc:creator>
-  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/</link>
+  <link>https://linaoa99.github.io/reproducible-research-quartoblog/posts/nextflow/</link>
   <description><![CDATA[ 
 
 
@@ -596,7 +596,7 @@ Note
 <p>Processes are executed independently and are isolated from each other, they only communicate via <code>channels</code>.</p>
 <p>In Nextflow there are two kinds of channels: <code>queue channels</code> and <code>value channels</code>: * <code>queue channel</code> is a non-blocking unidirectional FIFO queue which connects two processes, channel factories, or operators. * <code>value channel</code> also called singleton channel is bound to a single value and can be read an unlimited number of times without consuming its content.</p>
 <p>Any <code>process</code> can define one or more <code>channels</code> as an <code>input</code> and <code>output</code>.</p>
-<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/nf_basic_expl.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/nextflow/nf_basic_expl.png" class="img-fluid" style="width:100.0%"></p>
 <p>Here is a <code>process block</code> that describes the picture above as part of a Nextflow pipeline:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
 background-color: null;
@@ -668,14 +668,14 @@ Note
 <p><strong>However</strong>, real-world computational workflows a high-performance computing (HPC) or cloud platform is often required.</p>
 </div>
 </div>
-<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/nf.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://linaoa99.github.io/reproducible-research-quartoblog/posts/nextflow/nf.png" class="img-fluid" style="width:100.0%"></p>
 
 
 </section>
 
  ]]></description>
   <category>Nextflow</category>
-  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/piping/</guid>
+  <guid>https://linaoa99.github.io/reproducible-research-quartoblog/posts/nextflow/</guid>
   <pubDate>Wed, 16 Sep 2026 15:15:00 GMT</pubDate>
 </item>
 <item>

@@ -12,16 +12,18 @@
     ]
   },
   {
-    "objectID": "posts/piping/index.html",
-    "href": "posts/piping/index.html",
-    "title": "Basics of Nextflow",
+    "objectID": "posts/ggplot/index.html",
+    "href": "posts/ggplot/index.html",
+    "title": "Learning ggplot2",
     "section": "",
-    "text": "Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a workflow or pipeline.\nManual deployment of pipelines is not always the most effective path to take in cases of: * Many steps in your analysis * Many files needing processing * Files with different sizes; one takes a minute to run, another takes an hour…\nWith the goal of automizing pipelines/workflows a software was made: workflow managers. What does it do? * Coordinates the deployment of the scripts in the appropriate sequence * Monitors the jobs * Handles the file transfers between scripts * Gathers the output * Handles re-execution of failed jobs for you * Can run containers -&gt; which eliminates software installation and version conflicts\nThere are two workflow managers that are widely used: snakemake and nextflow.\n\nNextflow pipeline\nIn practice, a Nextflow workflow is made by joining together different processes. Each can be written in any scripting language that can be executed by the Linux platform (Bash, Perl, Ruby, Python, etc.).\nProcesses are executed independently and are isolated from each other, they only communicate via channels.\nIn Nextflow there are two kinds of channels: queue channels and value channels: * queue channel is a non-blocking unidirectional FIFO queue which connects two processes, channel factories, or operators. * value channel also called singleton channel is bound to a single value and can be read an unlimited number of times without consuming its content.\nAny process can define one or more channels as an input and output.\n\nHere is a process block that describes the picture above as part of a Nextflow pipeline:\nprocess PROCESS_NAME{\n\n    input:\n      data z\n      data y\n      data x\n\n    // directives\n    container\n\n    script:\n      task1\n      task2\n      task3\n\n    output:\n      output x\n      output y\n      output z\n}\n\nprocess defines what command or script is executed\nexecutor determines how that script is run in the target platform.\n\n\n\n\n\n\n\nNote\n\n\n\nIf not otherwise specified, processes are executed on the local computer. This is useful for: * Workflow development * Testing purposes\nHowever, real-world computational workflows a high-performance computing (HPC) or cloud platform is often required.",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Basics of Nextflow"
-    ]
+    "text": "Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by Raukr:\n\n\n\nFirst, we need to load our required packages:\n\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(ggrepel)\n\n\nFor this example, we will use the iris dataset:\n\n\ndata(\"iris\")\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNext, we build a plot with x= Petal length and y= Petal Width\n\n\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.6.1\n\nggplot(data = iris) +\n  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))"
+  },
+  {
+    "objectID": "posts/ggplot/index.html#learning-ggplot2",
+    "href": "posts/ggplot/index.html#learning-ggplot2",
+    "title": "Learning ggplot2",
+    "section": "",
+    "text": "Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by Raukr:\n\n\n\nFirst, we need to load our required packages:\n\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(ggrepel)\n\n\nFor this example, we will use the iris dataset:\n\n\ndata(\"iris\")\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNext, we build a plot with x= Petal length and y= Petal Width\n\n\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.6.1\n\nggplot(data = iris) +\n  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))"
   },
   {
     "objectID": "posts/gif/index.html",
@@ -136,17 +138,10 @@
     ]
   },
   {
-    "objectID": "posts/ggplot/index.html",
-    "href": "posts/ggplot/index.html",
-    "title": "Learning ggplot2",
+    "objectID": "posts/nextflow/index.html",
+    "href": "posts/nextflow/index.html",
+    "title": "Basics of Nextflow",
     "section": "",
-    "text": "Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by Raukr:\n\n\n\nFirst, we need to load our required packages:\n\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(ggrepel)\n\n\nFor this example, we will use the iris dataset:\n\n\ndata(\"iris\")\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNext, we build a plot with x= Petal length and y= Petal Width\n\n\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.6.1\n\nggplot(data = iris) +\n  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))"
-  },
-  {
-    "objectID": "posts/ggplot/index.html#learning-ggplot2",
-    "href": "posts/ggplot/index.html#learning-ggplot2",
-    "title": "Learning ggplot2",
-    "section": "",
-    "text": "Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by Raukr:\n\n\n\nFirst, we need to load our required packages:\n\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(ggrepel)\n\n\nFor this example, we will use the iris dataset:\n\n\ndata(\"iris\")\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNext, we build a plot with x= Petal length and y= Petal Width\n\n\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.6.1\n\nggplot(data = iris) +\n  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))"
+    "text": "Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a workflow or pipeline.\nManual deployment of pipelines is not always the most effective path to take in cases of: * Many steps in your analysis * Many files needing processing * Files with different sizes; one takes a minute to run, another takes an hour…\nWith the goal of automizing pipelines/workflows a software was made: workflow managers. What does it do? * Coordinates the deployment of the scripts in the appropriate sequence * Monitors the jobs * Handles the file transfers between scripts * Gathers the output * Handles re-execution of failed jobs for you * Can run containers -&gt; which eliminates software installation and version conflicts\nThere are two workflow managers that are widely used: snakemake and nextflow.\n\nNextflow pipeline\nIn practice, a Nextflow workflow is made by joining together different processes. Each can be written in any scripting language that can be executed by the Linux platform (Bash, Perl, Ruby, Python, etc.).\nProcesses are executed independently and are isolated from each other, they only communicate via channels.\nIn Nextflow there are two kinds of channels: queue channels and value channels: * queue channel is a non-blocking unidirectional FIFO queue which connects two processes, channel factories, or operators. * value channel also called singleton channel is bound to a single value and can be read an unlimited number of times without consuming its content.\nAny process can define one or more channels as an input and output.\n\nHere is a process block that describes the picture above as part of a Nextflow pipeline:\nprocess PROCESS_NAME{\n\n    input:\n      data z\n      data y\n      data x\n\n    // directives\n    container\n\n    script:\n      task1\n      task2\n      task3\n\n    output:\n      output x\n      output y\n      output z\n}\n\nprocess defines what command or script is executed\nexecutor determines how that script is run in the target platform.\n\n\n\n\n\n\n\nNote\n\n\n\nIf not otherwise specified, processes are executed on the local computer. This is useful for: * Workflow development * Testing purposes\nHowever, real-world computational workflows a high-performance computing (HPC) or cloud platform is often required."
   }
 ]
