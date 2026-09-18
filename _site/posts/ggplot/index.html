@@ -8,7 +8,7 @@
 
 <meta name="author" content="Lina Andersson">
 
-<title>Pixi for environment management – Lina’s Blog</title>
+<title>Learning ggplot2 – Lina’s Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/pixi/index.html">How to use Pixi for environment management</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Learning ggplot2</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -159,12 +159,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/pixi/index.html">How to use Pixi for environment management</a></li></ol></nav>
-      <h1 class="title">Pixi for environment management</h1>
-            <p class="subtitle lead">Pixi for working on a remote server</p>
+    <div class="quarto-title column-body">
+      <h1 class="title">Learning ggplot2</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Instructions</div>
-                <div class="quarto-category">Pixi</div>
+                <div class="quarto-category">ggplot2</div>
               </div>
                   </div>
   </div>
@@ -182,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2026-09-15 13:12</p>
+        <p class="date">2026-09-18 11:37</p>
       </div>
     </div>
     
@@ -236,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/pixi/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/pixi/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to use Pixi for environment management</span></a>
   </div>
 </li>
@@ -264,10 +263,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-pixi" id="toc-install-pixi" class="nav-link active" data-scroll-target="#install-pixi">Install Pixi</a></li>
-  <li><a href="#create-a-pixi-environment" id="toc-create-a-pixi-environment" class="nav-link" data-scroll-target="#create-a-pixi-environment">Create a Pixi Environment</a></li>
-  <li><a href="#adding-dependencies-in-pixi.toml" id="toc-adding-dependencies-in-pixi.toml" class="nav-link" data-scroll-target="#adding-dependencies-in-pixi.toml">Adding dependencies in Pixi.toml</a></li>
-  <li><a href="#running-a-tool-with-pixi" id="toc-running-a-tool-with-pixi" class="nav-link" data-scroll-target="#running-a-tool-with-pixi">Running a tool with Pixi</a></li>
+  <li><a href="#learning-ggplot2" id="toc-learning-ggplot2" class="nav-link active" data-scroll-target="#learning-ggplot2">Learning ggplot2</a>
+  <ul class="collapse">
+  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics">1. Basics</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -278,51 +277,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with <code>Pixi</code> environments.</p>
-<p><code>Windows</code> doesn’t really support most bioinformatics tools, or your computer might run a different version of a specific tool than mine. One way to solve this, and make research more reproducible, is through the use of environments.</p>
-<p>In this post, I will show you how to use <code>Pixi</code> to create a reproducible environment for your bioinformatics tools. Since, we are working on a Linuxserver, we will use the command line to install and use <code>Pixi</code>.</p>
-<p><img src="pixi.png" class="img-fluid" style="width:50.0%"></p>
-<section id="install-pixi" class="level3">
-<h3 class="anchored" data-anchor-id="install-pixi">Install Pixi</h3>
-<p>Use the following command to install <code>Pixi</code> on your server. This will download and install the latest version of <code>Pixi</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-qO-</span> https://pixi.sh/install.sh <span class="kw">|</span> <span class="fu">sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Next, you need to source your shell, you need to source the startup files, in Linux it’s the source <code>~/.bashrc</code> file.</p>
-</section>
-<section id="create-a-pixi-environment" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-pixi-environment">Create a Pixi Environment</h3>
-<p>Use the following command to create a new <code>Pixi</code> environment:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> init lina_pixi_training <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will create a new environment called <code>lina_pixi_training</code> and install the necessary dependencies from the <code>conda-forge</code> and <code>bioconda</code> channels. The folder now contains a <code>pixi toml</code> file, which contains the environment specifications. You can edit this file to add or remove dependencies as needed. This will look something like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[workspace]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">channels</span> = [<span class="st">"conda-forge"</span>, <span class="st">"bioconda"</span>] <span class="co">#Added channels - these are the sources we allow for our dependencies/ tools.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">name</span> = <span class="st">"lina_pixi_training"</span> <span class="co">#The name of the environment.</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">platforms</span> = <span class="pp">[</span><span class="st">"linux-64"</span><span class="pp">]</span> <span class="co">#Operating system the environment is optimised for</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">version</span> = <span class="st">"0.1.0"</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[tasks]</span> <span class="co">#This is where we can define tasks - interesting, but not covered in this course.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[dependencies]</span> <span class="co">#Here will be the list of tool installed within the environment (once we have added them).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In addition, the .gitignore and .gitattributes files are created automatically so that the environment can be version controlled.</p>
-</section>
-<section id="adding-dependencies-in-pixi.toml" class="level3">
-<h3 class="anchored" data-anchor-id="adding-dependencies-in-pixi.toml">Adding dependencies in Pixi.toml</h3>
-<p>Adding dependencies to the .toml file is telling Pixi to install the specified program for you. However, instead of installing it globally, it only gets installed in the environment.</p>
-<p>To add a dependency, you can either edit the <code>pixi.toml</code> file directly, or use the command line. <strong>Don’t forget to cd into the environment directory first!</strong> For example, to add <code>Quarto</code>, you can run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> add quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will add <code>Quarto</code> to the list of dependencies in the <code>pixi.toml</code> file, and install it in the server environment ONLY. The <code>pixi.toml</code> file will now look like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[dependencies]</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> = <span class="st">"&gt;=1.9.38,&lt;2"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Once you have used the environment, or added a dependency/tool to it, you will find yet another file, called pixi.lock, which contains the exact versions of all dependencies in the environment. This file is important for reproducibility, as it allows others to recreate the exact same environment.</p>
-<p>OBS! Do not delete the .toml or .lock files, or you will break your environment!</p>
-</section>
-<section id="running-a-tool-with-pixi" class="level3">
-<h3 class="anchored" data-anchor-id="running-a-tool-with-pixi">Running a tool with Pixi</h3>
-<p>Use <code>Pixi</code> to run a tool in the environment. For example, to run <code>Quarto</code>, you can use the following command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run quarto <span class="at">--help</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here, the –help flag will show you the help message for <code>Quarto</code>. You can replace <code>--help</code> with any other command or flag that you want to use with <code>Quarto</code>.</p>
-<p>To use other tools, simply substitute quarto with the package you’ve added.</p>
+<section id="learning-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="learning-ggplot2">Learning ggplot2</h2>
+<p>Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by <a href="https://nbisweden.github.io/raukr-2026/labs/ggplot/">Raukr</a>:</p>
+<section id="basics" class="level3">
+<h3 class="anchored" data-anchor-id="basics">1. Basics</h3>
+<ol type="1">
+<li>First, we need to load our required packages:</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="2" type="1">
+<li>For this example, we will use the <code>iris dataset</code>:</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"iris"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Next, we build a plot with x= <code>Petal length</code> and y= <code>Petal Width</code></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.6.1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Petal.Width))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

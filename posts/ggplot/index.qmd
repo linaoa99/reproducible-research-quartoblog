@@ -1,0 +1,43 @@
+---
+title: "Learning ggplot2"
+author: "Lina Andersson"
+date: "2026-09-18 11:37"
+date-format: "YYYY-MM-DD HH:mm"
+categories: [Instructions, ggplot2]
+---
+
+## Learning ggplot2
+Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by [Raukr](https://nbisweden.github.io/raukr-2026/labs/ggplot/):
+
+### 1. Basics
+1. First, we need to load our required packages:
+```{r}
+#| eval: false
+#| warning: false
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(ggrepel)
+```
+
+2. For this example, we will use the `iris dataset`:
+```{r}
+#| warning: false
+data("iris")
+head(iris)
+```
+
+3. Next, we build a plot with x= `Petal length` and y= `Petal Width`:
+
+When you want to specify which part of your data to use you use `Aesthetic mapping`. And we specify the geometric using geoms. Note that the variable names do not have double quotes "" like in base plots.
+
+
+```{r}
+#| warning: false
+library(ggplot2) #OBS! In Quarto you need to load ggplot2 in the first code chunk using ggplot2
+ggplot(data = iris) +
+  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))
+```
+
+4. 

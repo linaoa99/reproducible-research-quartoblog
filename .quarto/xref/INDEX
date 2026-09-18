@@ -34,5 +34,11 @@
   },
   "posts/nf_core/index.qmd": {
     "index.html": "fe106e27"
+  },
+  "posts/ggplot/index.qmd": {
+    "index.html": "808d8f9f"
+  },
+  "posts/ai/index.qmd": {
+    "index.html": "514a3e43"
   }
 }

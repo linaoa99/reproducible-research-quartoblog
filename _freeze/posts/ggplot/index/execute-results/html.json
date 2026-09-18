@@ -1,0 +1,17 @@
+{
+  "hash": "d62e8b53bd517c5b9f991ae4906478d0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Learning ggplot2\"\nauthor: \"Lina Andersson\"\ndate: \"2026-09-18 11:37\"\ndate-format: \"YYYY-MM-DD HH:mm\"\ncategories: [Instructions, ggplot2]\n---\n\n## Learning ggplot2\nHere, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by [Raukr](https://nbisweden.github.io/raukr-2026/labs/ggplot/):\n\n### 1. Basics\n1. First, we need to load our required packages:\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(ggrepel)\n```\n:::\n\n\n2. For this example, we will use the `iris dataset`:\n\n::: {.cell}\n\n```{.r .cell-code}\ndata(\"iris\")\nhead(iris)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n```\n\n\n:::\n:::\n\n\n3. Next, we build a plot with x= `Petal length` and y= `Petal Width`\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: package 'ggplot2' was built under R version 4.6.1\n```\n\n\n:::\n\n```{.r .cell-code}\nggplot(data = iris) +\n  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

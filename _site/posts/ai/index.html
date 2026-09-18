@@ -8,7 +8,7 @@
 
 <meta name="author" content="Lina Andersson">
 
-<title>Pixi for environment management – Lina’s Blog</title>
+<title>AI in Bioinformatics – Lina’s Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,41 +26,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -150,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/pixi/index.html">How to use Pixi for environment management</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AI in Bioinformatics</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -159,12 +124,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/pixi/index.html">How to use Pixi for environment management</a></li></ol></nav>
-      <h1 class="title">Pixi for environment management</h1>
-            <p class="subtitle lead">Pixi for working on a remote server</p>
+    <div class="quarto-title column-body">
+      <h1 class="title">AI in Bioinformatics</h1>
+            <p class="subtitle lead">Using AI with caution to code for research</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Instructions</div>
-                <div class="quarto-category">Pixi</div>
+                <div class="quarto-category">AI</div>
               </div>
                   </div>
   </div>
@@ -182,7 +146,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2026-09-15 13:12</p>
+        <p class="date">2026-09-18 13:47</p>
       </div>
     </div>
     
@@ -236,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/pixi/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/pixi/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to use Pixi for environment management</span></a>
   </div>
 </li>
@@ -264,10 +228,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-pixi" id="toc-install-pixi" class="nav-link active" data-scroll-target="#install-pixi">Install Pixi</a></li>
-  <li><a href="#create-a-pixi-environment" id="toc-create-a-pixi-environment" class="nav-link" data-scroll-target="#create-a-pixi-environment">Create a Pixi Environment</a></li>
-  <li><a href="#adding-dependencies-in-pixi.toml" id="toc-adding-dependencies-in-pixi.toml" class="nav-link" data-scroll-target="#adding-dependencies-in-pixi.toml">Adding dependencies in Pixi.toml</a></li>
-  <li><a href="#running-a-tool-with-pixi" id="toc-running-a-tool-with-pixi" class="nav-link" data-scroll-target="#running-a-tool-with-pixi">Running a tool with Pixi</a></li>
+  <li><a href="#important-information-regarding-ai" id="toc-important-information-regarding-ai" class="nav-link active" data-scroll-target="#important-information-regarding-ai">Important information regarding AI</a>
+  <ul class="collapse">
+  <li><a href="#take-away-from-discussion-about-ai" id="toc-take-away-from-discussion-about-ai" class="nav-link" data-scroll-target="#take-away-from-discussion-about-ai">Take-away from discussion about AI</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -278,51 +242,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with <code>Pixi</code> environments.</p>
-<p><code>Windows</code> doesn’t really support most bioinformatics tools, or your computer might run a different version of a specific tool than mine. One way to solve this, and make research more reproducible, is through the use of environments.</p>
-<p>In this post, I will show you how to use <code>Pixi</code> to create a reproducible environment for your bioinformatics tools. Since, we are working on a Linuxserver, we will use the command line to install and use <code>Pixi</code>.</p>
-<p><img src="pixi.png" class="img-fluid" style="width:50.0%"></p>
-<section id="install-pixi" class="level3">
-<h3 class="anchored" data-anchor-id="install-pixi">Install Pixi</h3>
-<p>Use the following command to install <code>Pixi</code> on your server. This will download and install the latest version of <code>Pixi</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-qO-</span> https://pixi.sh/install.sh <span class="kw">|</span> <span class="fu">sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Next, you need to source your shell, you need to source the startup files, in Linux it’s the source <code>~/.bashrc</code> file.</p>
-</section>
-<section id="create-a-pixi-environment" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-pixi-environment">Create a Pixi Environment</h3>
-<p>Use the following command to create a new <code>Pixi</code> environment:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> init lina_pixi_training <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will create a new environment called <code>lina_pixi_training</code> and install the necessary dependencies from the <code>conda-forge</code> and <code>bioconda</code> channels. The folder now contains a <code>pixi toml</code> file, which contains the environment specifications. You can edit this file to add or remove dependencies as needed. This will look something like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[workspace]</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">channels</span> = [<span class="st">"conda-forge"</span>, <span class="st">"bioconda"</span>] <span class="co">#Added channels - these are the sources we allow for our dependencies/ tools.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">name</span> = <span class="st">"lina_pixi_training"</span> <span class="co">#The name of the environment.</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">platforms</span> = <span class="pp">[</span><span class="st">"linux-64"</span><span class="pp">]</span> <span class="co">#Operating system the environment is optimised for</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">version</span> = <span class="st">"0.1.0"</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[tasks]</span> <span class="co">#This is where we can define tasks - interesting, but not covered in this course.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[dependencies]</span> <span class="co">#Here will be the list of tool installed within the environment (once we have added them).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In addition, the .gitignore and .gitattributes files are created automatically so that the environment can be version controlled.</p>
-</section>
-<section id="adding-dependencies-in-pixi.toml" class="level3">
-<h3 class="anchored" data-anchor-id="adding-dependencies-in-pixi.toml">Adding dependencies in Pixi.toml</h3>
-<p>Adding dependencies to the .toml file is telling Pixi to install the specified program for you. However, instead of installing it globally, it only gets installed in the environment.</p>
-<p>To add a dependency, you can either edit the <code>pixi.toml</code> file directly, or use the command line. <strong>Don’t forget to cd into the environment directory first!</strong> For example, to add <code>Quarto</code>, you can run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> add quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will add <code>Quarto</code> to the list of dependencies in the <code>pixi.toml</code> file, and install it in the server environment ONLY. The <code>pixi.toml</code> file will now look like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[dependencies]</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> = <span class="st">"&gt;=1.9.38,&lt;2"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Once you have used the environment, or added a dependency/tool to it, you will find yet another file, called pixi.lock, which contains the exact versions of all dependencies in the environment. This file is important for reproducibility, as it allows others to recreate the exact same environment.</p>
-<p>OBS! Do not delete the .toml or .lock files, or you will break your environment!</p>
-</section>
-<section id="running-a-tool-with-pixi" class="level3">
-<h3 class="anchored" data-anchor-id="running-a-tool-with-pixi">Running a tool with Pixi</h3>
-<p>Use <code>Pixi</code> to run a tool in the environment. For example, to run <code>Quarto</code>, you can use the following command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run quarto <span class="at">--help</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here, the –help flag will show you the help message for <code>Quarto</code>. You can replace <code>--help</code> with any other command or flag that you want to use with <code>Quarto</code>.</p>
-<p>To use other tools, simply substitute quarto with the package you’ve added.</p>
+<section id="important-information-regarding-ai" class="level2">
+<h2 class="anchored" data-anchor-id="important-information-regarding-ai">Important information regarding AI</h2>
+<section id="take-away-from-discussion-about-ai" class="level3">
+<h3 class="anchored" data-anchor-id="take-away-from-discussion-about-ai">Take-away from discussion about AI</h3>
+<p><strong>Learning with AI:</strong> *</p>
+<p><strong>Productivity with AI:</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Data Privacy and Legal Concerns:</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Local and open-weight models:</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Personal Responsibility:</strong></p>
+<ul>
+<li>Check every reference that is generated from AI, e.g.&nbsp;always ask where the information comes from in an article</li>
+</ul>
+<p><strong>Global Linguistic Changes:</strong></p>
+<ul>
+<li>AI changes how humans write, speak and feel about what it generates.</li>
+<li>Our perception is that the younger generation uses AI to write because they are less used to write their own text</li>
+<li>Academic writing sounds AI generated</li>
+<li>Different GPTs have different writing styles depending on where you are in the world</li>
+</ul>
+<p><img src="ai_language.png" class="img-fluid"><img src="ai_language2.png.png" class="img-fluid"> GPT words in YouTube videos from <a href="https://arxiv.org/pdf/2409.01754">Yakura et al 2025</a></p>
+<p><strong>AI on the Internet:</strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
