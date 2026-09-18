@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Lina Andersson">
 
-<title>Blog Posts – Lina’s Blog</title>
+<title>AI in Bioinformatics – Lina’s Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,25 +30,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8bec921cba67055eae2d3766bc76db53.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8bec921cba67055eae2d3766bc76db53.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,68 +73,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Lina's Blog" href="index.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
 
@@ -144,7 +85,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Lina’s Blog</span>
     </a>
   </div>
@@ -155,7 +96,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link active" href="../../about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -174,7 +115,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Posts</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AI in Bioinformatics</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -184,39 +125,55 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Blog Posts</h1>
-                      </div>
+      <h1 class="title">AI in Bioinformatics</h1>
+            <p class="subtitle lead">Using AI with caution to code for research</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">AI</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-body">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Lina Andersson </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">2026-09-18 13:47</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./gu_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./gu_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../gu_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../gu_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Posts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -225,37 +182,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/nf_core/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/nf_core/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pre-made Pipelines in nf-core</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/piping/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/piping/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basics of Nextflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/pixi_qc/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/pixi_qc/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to run Quality Control using Pixi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/pixi/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/pixi/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to use Pixi for environment management</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/publication/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/publication/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Publish a Quarto Blog via GitHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/gif/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/gif/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to add a GIF</span></a>
   </div>
 </li>
@@ -267,148 +224,93 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2dwbG90Mg==">ggplot2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2l0SHVi">GitHub <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW5zdHJ1Y3Rpb25z">Instructions <span class="quarto-category-count">(5)</span></div><div class="category" data-category="TmV4dGZsb3c=">Nextflow <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmYtY29yZQ==">nf-core <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGl4aQ==">Pixi <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UUM=">QC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UXVhcnRv">Quarto <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#take-away-from-discussion-about-ai" id="toc-take-away-from-discussion-about-ai" class="nav-link active" data-scroll-target="#take-away-from-discussion-about-ai">Take-away from discussion about AI</a></li>
+  <li><a href="#a-framework-for-working-with-ai" id="toc-a-framework-for-working-with-ai" class="nav-link" data-scroll-target="#a-framework-for-working-with-ai">A framework for working with AI</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="take-away-from-discussion-about-ai" class="level3">
+<h3 class="anchored" data-anchor-id="take-away-from-discussion-about-ai">Take-away from discussion about AI</h3>
+<p><strong>Learning with AI:</strong></p>
+<ul>
+<li>AI is a great study partner</li>
+<li>Although it has to be integrated well since it introduces the risk of being misinformed and have lower brain engagement</li>
+<li>You can promt the AI to teach you something from the level you want, e.g.&nbsp;beginner or high-school student level</li>
+</ul>
+<p><strong>Productivity with AI:</strong></p>
+<ul>
+<li>In a study, experts in bioinformatics thought AI would make their work more efficient, however it showed the opposite!</li>
+<li>The experts lost time to 1) checking and correcting code generated by AI, 2) having better knowledge themselves, 3) AI not understanding the context of their work etc.</li>
+</ul>
+<p><strong>Data Privacy and Legal Concerns:</strong></p>
+<ul>
+<li>Terms of Service from AI companies are often very invasive in their way of collecting data from you. It’s important to consider using AI or not based on what information you want to be shared. See an example below:</li>
+</ul>
+<p>[<strong>Account Personal Data</strong>, We collect Personal Data that you provide when you set up an account, such as your date of birth (where applicable), username (where applicable), email address and/or telephone number, and password.</p>
+<p><strong>User Input</strong>, When you use our Services, we may collect your text input, prompt, uploaded files, feedback, chat history, or other content that you provide to our model and Services (“Prompts” or “Inputs”). We generate responses (“Outputs”) based on your Inputs.</p>
+<p><strong>Personal Data When You Contact Us</strong>, When you contact us, we collect the Personal Data you send us, such as proof of identity or age, contact details, feedback or inquiries about your use of the Services or Personal Data about possible violations of our Terms of Service (our “Terms”) or other policies.]{.mark}</p>
+<ul>
+<li>Protection of sensitive biological data is highly important when using AI. A <strong>serious</strong> mistake people can make is using input sequences, tables, or other data into a GPT to find ways to plot data, perform sequence annotations, or similar tasks. Be wary of doing this as the AI will collect your sensitive data!</li>
+</ul>
+<p><strong>Local and open-weight models:</strong></p>
+<ul>
+<li>It’s important to know that when you use a commercial model, any data attached to it will land on someone else’s server.</li>
+<li><strong>Local models</strong> inhibits your data to leave your computer, some examples of these are: <strong>Ollama</strong> and <strong>LM-studio</strong> -&gt; These are open-weight LLMs</li>
+<li>These can be used offline</li>
+<li>However, your computer might not have the hardware to run these models. A small laptop generally has a weaker version of a local model</li>
+</ul>
+<p><strong>Personal Responsibility:</strong></p>
+<ul>
+<li>Check every reference that is generated from AI, e.g.&nbsp;always ask where the information comes from in an article</li>
+</ul>
+<p><strong>Global Linguistic Changes:</strong></p>
+<ul>
+<li>AI changes how humans write, speak and feel about what it generates.</li>
+<li>Our perception is that the younger generation uses AI to write because they are less used to write their own text</li>
+<li>Academic writing sounds AI generated</li>
+<li>Different GPTs have different writing styles depending on where you are in the world</li>
+</ul>
+<p><img src="ai_language.png" class="img-fluid"><img src="ai_language2.png.png" class="img-fluid"> GPT words in YouTube videos from <a href="https://arxiv.org/pdf/2409.01754">Yakura et al 2025</a></p>
+<p><strong>AI on the Internet:</strong></p>
+<ul>
+<li>AI is trained on many different inappropriate datasets, e.g.&nbsp;Reddit -&gt; leading to data pollution</li>
+<li>Today you cannot be sure if something is written by a human or a bot</li>
+<li>Reddit has agreements with Google and OpenAI, aka they get money from having their content used for model training</li>
+<li>The amount of content generated by AI rose from 2-3% in November 2022 to 24% by the end of 2023</li>
+</ul>
+<p><strong>Environmental Impact:</strong></p>
+<ul>
+<li>Do not ask questions that you coulnd’t find yourself</li>
+<li>Do not use “Please” or “Thank you”, every added word uses more energy</li>
+<li>Add <code>-ai</code> at the end of Google searches to remove automatic AI generated content</li>
+</ul>
+<p><strong>AI and reproducible research:</strong> * Reproducibility practises used to take a lot of time and money to implement and was intimidating to initiate * AI has made it easier to intiate reproducibility in research, e.g.&nbsp;it helps with creating a Github repository and appropriate commit messages quickly</p>
+</section>
+<section id="a-framework-for-working-with-ai" class="level3">
+<h3 class="anchored" data-anchor-id="a-framework-for-working-with-ai">A framework for working with AI</h3>
+<p>Working well and effectively with AI can be desribed by the four D’s: <img src="ai_fluency.jpg.png" class="img-fluid"></p>
+<ul>
+<li><p><strong>Delegation</strong>: Deciding whether, when, and how to involve AI at all. Ask the questions <em>Can I find this information in another way?</em> and <em>How much time am I saving by using AI?</em></p></li>
+<li><p><strong>Description</strong>: Describing what you want clearly enough to get a useful result. Prompting is everything! Ask the question <em>Is my promt good enough?</em></p></li>
+<li><p><strong>Discernment</strong>: Judging the quality of what comes back rather than accepting it. This is probably the most important part! Ask the question <em>Do I know enough about the topic to know whether the GPT is lying to me?</em></p></li>
+<li><p><strong>Diligence</strong>: Taking responsibility for how you used AI in your work. Be honest about when and how you used AI. Ask the question <em>What are the consequences of testing the validity of the AI output? Will I potentially lie about my research if I don’t validate it?</em></p></li>
+</ul>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Title
-</th>
-
-<th>
-Author
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-categories="QUk=" data-listing-date-sort="1789739220000" data-listing-file-modified-sort="1789739218061" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="790" data-listing-title-sort="AI in Bioinformatics" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 18, 2026</span>
-</td>
-<td>
-<a href="./posts/ai/index.html" class="title listing-title">AI in Bioinformatics</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="SW5zdHJ1Y3Rpb25zJTJDZ2dwbG90Mg==" data-listing-date-sort="1789731420000" data-listing-file-modified-sort="1789739218061" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="128" data-listing-title-sort="Learning ggplot2" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 18, 2026</span>
-</td>
-<td>
-<a href="./posts/ggplot/index.html" class="title listing-title">Learning ggplot2</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-categories="bmYtY29yZQ==" data-listing-date-sort="1789662900000" data-listing-file-modified-sort="1789739218067" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1166" data-listing-title-sort="Pre-made Pipelines in nf-core" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 17, 2026</span>
-</td>
-<td>
-<a href="./posts/nf_core/index.html" class="title listing-title">Pre-made Pipelines in nf-core</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-categories="TmV4dGZsb3c=" data-listing-date-sort="1789571700000" data-listing-file-modified-sort="1789739218072" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="392" data-listing-title-sort="Basics of Nextflow" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 16, 2026</span>
-</td>
-<td>
-<a href="./posts/piping/index.html" class="title listing-title">Basics of Nextflow</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-categories="SW5zdHJ1Y3Rpb25zJTJDUUMlMkNQaXhp" data-listing-date-sort="1789488300000" data-listing-file-modified-sort="1789739218073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56" data-listing-title-sort="Quality Control using Pixi" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 15, 2026</span>
-</td>
-<td>
-<a href="./posts/pixi_qc/index.html" class="title listing-title">Quality Control using Pixi</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-categories="SW5zdHJ1Y3Rpb25zJTJDUGl4aQ==" data-listing-date-sort="1789477920000" data-listing-file-modified-sort="1789739218073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="509" data-listing-title-sort="Pixi for environment management" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 15, 2026</span>
-</td>
-<td>
-<a href="./posts/pixi/index.html" class="title listing-title">Pixi for environment management</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-<tr data-index="6" data-categories="SW5zdHJ1Y3Rpb25zJTJDUXVhcnRvJTJDR2l0SHVi" data-listing-date-sort="1789398000000" data-listing-file-modified-sort="1789739218073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="502" data-listing-title-sort="Publish a Quarto Blog via GitHub" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 14, 2026</span>
-</td>
-<td>
-<a href="./posts/publication/index.html" class="title listing-title">Publish a Quarto Blog via GitHub</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-<tr data-index="7" data-categories="SW5zdHJ1Y3Rpb25z" data-listing-date-sort="1789395180000" data-listing-file-modified-sort="1789739218067" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94" data-listing-title-sort="Adding GIFs" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 14, 2026</span>
-</td>
-<td>
-<a href="./posts/gif/index.html" class="title listing-title">Adding GIFs</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

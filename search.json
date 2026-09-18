@@ -12,15 +12,27 @@
     ]
   },
   {
-    "objectID": "posts/pixi_qc/index.html",
-    "href": "posts/pixi_qc/index.html",
-    "title": "Quality Control using Pixi",
+    "objectID": "posts/piping/index.html",
+    "href": "posts/piping/index.html",
+    "title": "Basics of Nextflow",
     "section": "",
-    "text": "In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will show you how to run QC using Pixi environments, FastQC and MultiQC.\nPoor quality sequencing data can be caused by: - Sample contamination/degradation - Improper library preparation - Technical issues during sequencing",
+    "text": "Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a workflow or pipeline.\nManual deployment of pipelines is not always the most effective path to take in cases of: * Many steps in your analysis * Many files needing processing * Files with different sizes; one takes a minute to run, another takes an hour…\nWith the goal of automizing pipelines/workflows a software was made: workflow managers. What does it do? * Coordinates the deployment of the scripts in the appropriate sequence * Monitors the jobs * Handles the file transfers between scripts * Gathers the output * Handles re-execution of failed jobs for you * Can run containers -&gt; which eliminates software installation and version conflicts\nThere are two workflow managers that are widely used: snakemake and nextflow.\n\nNextflow pipeline\nIn practice, a Nextflow workflow is made by joining together different processes. Each can be written in any scripting language that can be executed by the Linux platform (Bash, Perl, Ruby, Python, etc.).\nProcesses are executed independently and are isolated from each other, they only communicate via channels.\nIn Nextflow there are two kinds of channels: queue channels and value channels: * queue channel is a non-blocking unidirectional FIFO queue which connects two processes, channel factories, or operators. * value channel also called singleton channel is bound to a single value and can be read an unlimited number of times without consuming its content.\nAny process can define one or more channels as an input and output.\n\nHere is a process block that describes the picture above as part of a Nextflow pipeline:\nprocess PROCESS_NAME{\n\n    input:\n      data z\n      data y\n      data x\n\n    // directives\n    container\n\n    script:\n      task1\n      task2\n      task3\n\n    output:\n      output x\n      output y\n      output z\n}\n\nprocess defines what command or script is executed\nexecutor determines how that script is run in the target platform.\n\n\n\n\n\n\n\nNote\n\n\n\nIf not otherwise specified, processes are executed on the local computer. This is useful for: * Workflow development * Testing purposes\nHowever, real-world computational workflows a high-performance computing (HPC) or cloud platform is often required.",
     "crumbs": [
       "About",
       "Posts",
-      "How to run Quality Control using Pixi"
+      "Basics of Nextflow"
+    ]
+  },
+  {
+    "objectID": "posts/gif/index.html",
+    "href": "posts/gif/index.html",
+    "title": "Adding GIFs",
+    "section": "",
+    "text": "Here, I learned how to add a GIF to a Quarto blog post.\n\n\n![](duck-dance.gif)\n\nI also learned that you can add a GIF to a Quarto blog post by using the ![]() syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.\nIsn’t that great? It makes me wanna do aduck dance!",
+    "crumbs": [
+      "About",
+      "Posts",
+      "How to add a GIF"
     ]
   },
   {
@@ -86,7 +98,7 @@
     "href": "index.html",
     "title": "Blog Posts",
     "section": "",
-    "text": "Date\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nSep 17, 2026\n\n\nPre-made Pipelines in nf-core\n\n\nLina Andersson\n\n\n\n\n\n\nSep 16, 2026\n\n\nBasics of Nextflow\n\n\nLina Andersson\n\n\n\n\n\n\nSep 15, 2026\n\n\nQuality Control using Pixi\n\n\nLina Andersson\n\n\n\n\n\n\nSep 15, 2026\n\n\nPixi for environment management\n\n\nLina Andersson\n\n\n\n\n\n\nSep 14, 2026\n\n\nPublish a Quarto Blog via GitHub\n\n\nLina Andersson\n\n\n\n\n\n\nSep 14, 2026\n\n\nAdding GIFs\n\n\nLina Andersson\n\n\n\n\n\n\nNo matching items",
+    "text": "Date\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nSep 18, 2026\n\n\nAI in Bioinformatics\n\n\nLina Andersson\n\n\n\n\n\n\nSep 18, 2026\n\n\nLearning ggplot2\n\n\nLina Andersson\n\n\n\n\n\n\nSep 17, 2026\n\n\nPre-made Pipelines in nf-core\n\n\nLina Andersson\n\n\n\n\n\n\nSep 16, 2026\n\n\nBasics of Nextflow\n\n\nLina Andersson\n\n\n\n\n\n\nSep 15, 2026\n\n\nQuality Control using Pixi\n\n\nLina Andersson\n\n\n\n\n\n\nSep 15, 2026\n\n\nPixi for environment management\n\n\nLina Andersson\n\n\n\n\n\n\nSep 14, 2026\n\n\nPublish a Quarto Blog via GitHub\n\n\nLina Andersson\n\n\n\n\n\n\nSep 14, 2026\n\n\nAdding GIFs\n\n\nLina Andersson\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "About",
       "Posts"
@@ -105,27 +117,36 @@
     ]
   },
   {
-    "objectID": "posts/gif/index.html",
-    "href": "posts/gif/index.html",
-    "title": "Adding GIFs",
+    "objectID": "posts/ai/index.html",
+    "href": "posts/ai/index.html",
+    "title": "AI in Bioinformatics",
     "section": "",
-    "text": "Here, I learned how to add a GIF to a Quarto blog post.\n\n\n![](duck-dance.gif)\n\nI also learned that you can add a GIF to a Quarto blog post by using the ![]() syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.\nIsn’t that great? It makes me wanna do aduck dance!",
+    "text": "Take-away from discussion about AI\nLearning with AI:\n\nAI is a great study partner\nAlthough it has to be integrated well since it introduces the risk of being misinformed and have lower brain engagement\nYou can promt the AI to teach you something from the level you want, e.g. beginner or high-school student level\n\nProductivity with AI:\n\nIn a study, experts in bioinformatics thought AI would make their work more efficient, however it showed the opposite!\nThe experts lost time to 1) checking and correcting code generated by AI, 2) having better knowledge themselves, 3) AI not understanding the context of their work etc.\n\nData Privacy and Legal Concerns:\n\nTerms of Service from AI companies are often very invasive in their way of collecting data from you. It’s important to consider using AI or not based on what information you want to be shared. See an example below:\n\n[Account Personal Data, We collect Personal Data that you provide when you set up an account, such as your date of birth (where applicable), username (where applicable), email address and/or telephone number, and password.\nUser Input, When you use our Services, we may collect your text input, prompt, uploaded files, feedback, chat history, or other content that you provide to our model and Services (“Prompts” or “Inputs”). We generate responses (“Outputs”) based on your Inputs.\nPersonal Data When You Contact Us, When you contact us, we collect the Personal Data you send us, such as proof of identity or age, contact details, feedback or inquiries about your use of the Services or Personal Data about possible violations of our Terms of Service (our “Terms”) or other policies.]{.mark}\n\nProtection of sensitive biological data is highly important when using AI. A serious mistake people can make is using input sequences, tables, or other data into a GPT to find ways to plot data, perform sequence annotations, or similar tasks. Be wary of doing this as the AI will collect your sensitive data!\n\nLocal and open-weight models:\n\nIt’s important to know that when you use a commercial model, any data attached to it will land on someone else’s server.\nLocal models inhibits your data to leave your computer, some examples of these are: Ollama and LM-studio -&gt; These are open-weight LLMs\nThese can be used offline\nHowever, your computer might not have the hardware to run these models. A small laptop generally has a weaker version of a local model\n\nPersonal Responsibility:\n\nCheck every reference that is generated from AI, e.g. always ask where the information comes from in an article\n\nGlobal Linguistic Changes:\n\nAI changes how humans write, speak and feel about what it generates.\nOur perception is that the younger generation uses AI to write because they are less used to write their own text\nAcademic writing sounds AI generated\nDifferent GPTs have different writing styles depending on where you are in the world\n\n GPT words in YouTube videos from Yakura et al 2025\nAI on the Internet:\n\nAI is trained on many different inappropriate datasets, e.g. Reddit -&gt; leading to data pollution\nToday you cannot be sure if something is written by a human or a bot\nReddit has agreements with Google and OpenAI, aka they get money from having their content used for model training\nThe amount of content generated by AI rose from 2-3% in November 2022 to 24% by the end of 2023\n\nEnvironmental Impact:\n\nDo not ask questions that you coulnd’t find yourself\nDo not use “Please” or “Thank you”, every added word uses more energy\nAdd -ai at the end of Google searches to remove automatic AI generated content\n\nAI and reproducible research: * Reproducibility practises used to take a lot of time and money to implement and was intimidating to initiate * AI has made it easier to intiate reproducibility in research, e.g. it helps with creating a Github repository and appropriate commit messages quickly\n\n\nA framework for working with AI\nWorking well and effectively with AI can be desribed by the four D’s: \n\nDelegation: Deciding whether, when, and how to involve AI at all. Ask the questions Can I find this information in another way? and How much time am I saving by using AI?\nDescription: Describing what you want clearly enough to get a useful result. Prompting is everything! Ask the question Is my promt good enough?\nDiscernment: Judging the quality of what comes back rather than accepting it. This is probably the most important part! Ask the question Do I know enough about the topic to know whether the GPT is lying to me?\nDiligence: Taking responsibility for how you used AI in your work. Be honest about when and how you used AI. Ask the question What are the consequences of testing the validity of the AI output? Will I potentially lie about my research if I don’t validate it?"
+  },
+  {
+    "objectID": "posts/pixi_qc/index.html",
+    "href": "posts/pixi_qc/index.html",
+    "title": "Quality Control using Pixi",
+    "section": "",
+    "text": "In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will show you how to run QC using Pixi environments, FastQC and MultiQC.\nPoor quality sequencing data can be caused by: - Sample contamination/degradation - Improper library preparation - Technical issues during sequencing",
     "crumbs": [
       "About",
       "Posts",
-      "How to add a GIF"
+      "How to run Quality Control using Pixi"
     ]
   },
   {
-    "objectID": "posts/piping/index.html",
-    "href": "posts/piping/index.html",
-    "title": "Basics of Nextflow",
+    "objectID": "posts/ggplot/index.html",
+    "href": "posts/ggplot/index.html",
+    "title": "Learning ggplot2",
     "section": "",
-    "text": "Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a workflow or pipeline.\nManual deployment of pipelines is not always the most effective path to take in cases of: * Many steps in your analysis * Many files needing processing * Files with different sizes; one takes a minute to run, another takes an hour…\nWith the goal of automizing pipelines/workflows a software was made: workflow managers. What does it do? * Coordinates the deployment of the scripts in the appropriate sequence * Monitors the jobs * Handles the file transfers between scripts * Gathers the output * Handles re-execution of failed jobs for you * Can run containers -&gt; which eliminates software installation and version conflicts\nThere are two workflow managers that are widely used: snakemake and nextflow.\n\nNextflow pipeline\nIn practice, a Nextflow workflow is made by joining together different processes. Each can be written in any scripting language that can be executed by the Linux platform (Bash, Perl, Ruby, Python, etc.).\nProcesses are executed independently and are isolated from each other, they only communicate via channels.\nIn Nextflow there are two kinds of channels: queue channels and value channels: * queue channel is a non-blocking unidirectional FIFO queue which connects two processes, channel factories, or operators. * value channel also called singleton channel is bound to a single value and can be read an unlimited number of times without consuming its content.\nAny process can define one or more channels as an input and output.\n\nHere is a process block that describes the picture above as part of a Nextflow pipeline:\nprocess PROCESS_NAME{\n\n    input:\n      data z\n      data y\n      data x\n\n    // directives\n    container\n\n    script:\n      task1\n      task2\n      task3\n\n    output:\n      output x\n      output y\n      output z\n}\n\nprocess defines what command or script is executed\nexecutor determines how that script is run in the target platform.\n\n\n\n\n\n\n\nNote\n\n\n\nIf not otherwise specified, processes are executed on the local computer. This is useful for: * Workflow development * Testing purposes\nHowever, real-world computational workflows a high-performance computing (HPC) or cloud platform is often required.",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Basics of Nextflow"
-    ]
+    "text": "Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by Raukr:\n\n\n\nFirst, we need to load our required packages:\n\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(ggrepel)\n\n\nFor this example, we will use the iris dataset:\n\n\ndata(\"iris\")\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNext, we build a plot with x= Petal length and y= Petal Width\n\n\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.6.1\n\nggplot(data = iris) +\n  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))"
+  },
+  {
+    "objectID": "posts/ggplot/index.html#learning-ggplot2",
+    "href": "posts/ggplot/index.html#learning-ggplot2",
+    "title": "Learning ggplot2",
+    "section": "",
+    "text": "Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by Raukr:\n\n\n\nFirst, we need to load our required packages:\n\n\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(ggplot2)\nlibrary(ggrepel)\n\n\nFor this example, we will use the iris dataset:\n\n\ndata(\"iris\")\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\n\nNext, we build a plot with x= Petal length and y= Petal Width\n\n\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.6.1\n\nggplot(data = iris) +\n  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))"
   }
 ]
