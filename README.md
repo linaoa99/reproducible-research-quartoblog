@@ -1,3 +1,12 @@
-Welcome to Lina's Quarto Blog for the Reproducible Research Course at MedBioInfo. 
+**Welcome to Lina's Quarto Blog for the Reproducible Research Course at MedBioInfo**
 
-Here, you will find blog posts that describe what Lina has learned each day during her course and additional lessons from personal investigations into Quarto, Git, R coding and more.
+Blog posts will describe what Lina has learned each day during her course and other content. 
+Said content includes information and instructions about:
+
+- Publishing a Quarto Blog
+- Using Pixi environments and how to run Quality Controls there
+- Using Nextflow and nf-core
+- Creating complex plots using ggplot2
+- Discussion about AI in research
+
+This blog also has an 'About' page which describes Lina's proffesional background, education and other interests. There are also links to both her GitHub account and her LinkedIn account.
