@@ -9,8 +9,91 @@ categories: [Instructions, ggplot2]
 ## Learning ggplot2
 Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by [Raukr](https://nbisweden.github.io/raukr-2026/labs/ggplot/):
 
-### 1. Basics
-1. First, we need to load our required packages:
+There are two exercises apart from learning basics, in which we will cover one in this blog post:
+
+### Economist scatterplot
+
+The aim of this challenge is to recreate the plot below originally published in [*The Economist*](https://www.economist.com/graphic-detail/2011/12/02/corrosive-corruption). The graph is a scatterplot showing the relationship between *Corruption Index and Human Development Index for various countries*.
+
+```{r}
+#| warning: false
+#| echo: false
+# load packages
+library(ggrepel)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(showtext)
+showtext_auto()
+font_add_google("Slabo 27px", "Slabo 27px")
+
+# read data
+ec <- read.csv("data_economist.csv", header = TRUE)
+# refactor
+ec$Region <- factor(ec$Region,
+  levels = c(
+    "EU W. Europe", "Americas", "Asia Pacific",
+    "East EU Cemt Asia", "MENA", "SSA"
+  ),
+  labels = c(
+    "OECD", "Americas", "Asia &\nOceania",
+    "Central &\nEastern Europe",
+    "Middle East &\nNorth Africa",
+    "Sub-Saharan\nAfrica"
+  )
+)
+
+# labels
+labels <- c("Congo", "Afghanistan", "Sudan", "Myanmar", "Iraq", "Venezuela", "Russia", "Argentina", "Brazil", "Italy", "South Africa", "Cape Verde", "Bhutan", "Botswana", "Britain", "New Zealand", "Greece", "China", "India", "Rwanda", "Spain", "France", "United States", "Japan", "Norway", "Singapore", "Barbados", "Germany")
+
+# trendline label
+trend_model <- lm(HDI ~ poly(CPI, 2), data = ec)
+r_squared <- summary(trend_model)$r.squared
+r_label <- as.expression(bquote(R^2 == .(round(r_squared, 2))))
+
+# plotting
+p1 <- ggplot(ec, aes(x = CPI, y = HDI, color = Region)) +
+  geom_smooth(aes(fill = "red"), method = "lm", formula = y ~ poly(x, 2), se = FALSE, color = "red", linewidth = 0.6) +
+  geom_point(shape = 21, size = 3, stroke = 0.8, fill = "white") +
+  geom_text_repel(
+    data = subset(ec, Country %in% labels), aes(label = Country),
+    color = "black", box.padding = unit(1, "lines"), segment.size = 0.25,
+    size = 3, family = "Slabo 27px"
+  ) +
+  scale_x_continuous(
+    name = "Corruption Perceptions Index, 2011 (10=least corrupt)",
+    breaks = 1:10, limits = c(1, 10)
+  ) +
+  scale_y_continuous(
+    name = "Human Development Index, 2011 (1=best)",
+    breaks = seq(from = 0.2, to = 1, by = 0.1), limits = c(0.2, 1)
+  ) +
+  scale_color_manual(values = c("#23576E", "#099FDB", "#29B00E", "#208F84", "#F55840", "#924F3E")) +
+  scale_fill_manual(name = "trend", values = "red", labels = r_label) +
+  labs(
+    title = "Corruption and human development",
+    caption = "Sources: Transparency International; UN Human Development Report"
+  ) +
+  guides(color = guide_legend(nrow = 1)) +
+  theme_bw(base_family = "slabo") +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.background = element_blank(),
+    panel.border = element_blank(),
+    legend.title = element_blank(),
+    axis.title = element_text(face = "italic"),
+    axis.ticks.y = element_blank(),
+    axis.ticks.x = element_line(color = "grey60"),
+    plot.title = element_text(face = "bold"),
+    plot.caption = element_text(hjust = 0, size = 8)
+  )
+  p1
+```
+
+**1. First, we need to load our required packages:**
 ```{r}
 #| eval: false
 #| warning: false
@@ -21,23 +104,212 @@ library(ggplot2)
 library(ggrepel)
 ```
 
-2. For this example, we will use the `iris dataset`:
+**2. Download the [data .csv file](../ggplot/data_economist.csv) and read the data using:**
 ```{r}
 #| warning: false
-data("iris")
-head(iris)
+ec <- read.csv("data_economist.csv", header = TRUE)
+head(ec)
 ```
 
-3. Next, we build a plot with x= `Petal length` and y= `Petal Width`:
+To check that the right types of data is in the correct format we use:
 
-When you want to specify which part of your data to use you use `Aesthetic mapping`. And we specify the geometric using geoms. Note that the variable names do not have double quotes "" like in base plots.
-
+* x = 'CPI' (numeric)
+* y = 'HDI' (numeric)
+* 'Region' (factor)
 
 ```{r}
 #| warning: false
-library(ggplot2) #OBS! In Quarto you need to load ggplot2 in the first code chunk using ggplot2
-ggplot(data = iris) +
-  geom_point(mapping = aes(x = Petal.Length, y = Petal.Width))
+str(ec)
 ```
 
-4. 
+**3. 'Region' is currently formatted as `character`. We change this by running:**
+```{r}
+#| warning: false
+ec$Region <- factor(ec$Region)
+levels(ec$Region)
+```
+
+**4. Change names of 'Region':**
+
+The names of the regions also need to be changed, since the new labels are a bit long for one line we can add `\n` where we want breaks:
+```{r}
+#| warning: false
+ec$Region <- factor(ec$Region,
+  levels = c(
+    "EU W. Europe",
+    "Americas",
+    "Asia Pacific",
+    "East EU Cemt Asia",
+    "MENA",
+    "SSA"
+  ),
+  labels = c(
+    "OECD",
+    "Americas",
+    "Asia &\nOceania",
+    "Central &\nEastern Europe",
+    "Middle East &\nNorth Africa",
+    "Sub-Saharan\nAfrica"
+  )
+)
+
+levels(ec$Region)
+```
+
+**5. Start building the plot using ggplot2:**
+
+The color of the points should be on 'Region'. 
+```{r}
+ggplot(ec, aes(x = CPI, y = HDI, color = Region)) +
+  geom_point(shape = 21, size = 3, stroke = 0.8, fill = "white")
+```
+
+**6. Add a trendline:** 
+
+The line should be red, follow a custom equation `y ~ poly(x, 2)` for the linear model (lm), and not include confidence interval shading (se = Standard Error).
+```{r}
+ggplot(ec, aes(x = CPI, y = HDI, color = Region)) +
+  geom_point(shape = 21, size = 3, stroke = 0.8, fill = "white") +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2), se = FALSE, linewidth = 0.6, color = "red")
+```
+
+**7. Add a legend for trendline and layer it underneath points:**
+
+We need to reorder the geoms and create a fake legend by adding aes(). 
+```{r}
+p <- ggplot(ec, aes(x = CPI, y = HDI, color = Region)) +
+  geom_smooth(aes(fill = "red"), method = "lm", formula = y ~ poly(x, 2), se = FALSE, color = "red", linewidth = 0.6) +
+  geom_point(shape = 21, size = 3, stroke = 0.8, fill = "white")
+```
+
+**8. Add text labels for points:**
+
+To add labels for the points we need to make a list of names for the points by using concatenation of the names. In addition, since we gave the previous plot the variable `p` we can simply add the labels after using `geom_text()`.
+```{r}
+labels <- c("Congo", "Afghanistan", "Sudan", "Myanmar", "Iraq", "Venezuela", "Russia", "Argentina", "Brazil", "Italy", "South Africa", "Cape Verde", "Bhutan", "Botswana", "Britain", "New Zealand", "Greece", "China", "India", "Rwanda", "Spain", "France", "United States", "Japan", "Norway", "Singapore", "Barbados", "Germany")
+
+p + geom_text(data = subset(ec, Country %in% labels), aes(label = Country), color = "black")
+```
+
+**9. Change to a custom font:**
+
+Custom fonts can be used for the labels by providing the font name to argument `family` like so `geom_text(family="fontname")`. This is where the `showtext` package comes into play. The package registers fonts from 'Google Fonts' or a local font file. 
+
+The font used in *The Economist* is not free, we use a font called `Slabo 27px` instead.
+```{r}
+p + geom_text(
+  data = subset(ec, Country %in% labels), aes(label = Country),
+  color = "black", family = "Slabo 27px"
+)
+```
+
+**10. Correcting label overlap:**
+
+To avoid overlapping of labels, we can use a ggplot2 extension package `ggrepel`. We can use function `geom_text_repel()`.
+
+```{r}
+p <- p + geom_text_repel(
+  data = subset(ec, Country %in% labels), aes(label = Country),
+  color = "black", box.padding = unit(1, "lines"), segment.size = 0.25,
+  size = 3, family = "Slabo 27px"
+)
+p
+```
+
+**11. Adjust axes:**
+
+We can adjust axes breaks, axes labels, point colors and relabeling the trendline legend text.
+
+* x ='Corruption Perceptions Index, 2011 (10=least corrupt)'
+* y = 'Human Development Index, 2011 (1=best)'
+
+* x axis breaks = 1 to 10 by 1 increment
+* y axis breaks = 0.2 to 1.0 by 0.1 increments
+
+```{r}
+p <- p + scale_x_continuous(
+  name = "Corruption Perceptions Index, 2011 (10=least corrupt)",
+  breaks = 1:10, limits = c(1, 10)
+) +
+  scale_y_continuous(
+    name = "Human Development Index, 2011 (1=best)",
+    breaks = seq(from = 0.2, to = 1, by = 0.1), limits = c(0.2, 1)
+  )
+p
+```
+
+**12. Pick colors manually:**
+
+For this we use two functions:
+
+* `scale_color_manual()` to set the color codes for points
+* `scale_fill_manual()` to change the trendline label. Here we compute the model fit first, then use the resulting value to create the legemd entry as `R²`
+
+```{r}
+trend_model <- lm(HDI ~ poly(CPI, 2), data = ec)
+r_squared <- summary(trend_model)$r.squared
+r_label <- as.expression(bquote(R^2 == .(round(r_squared, 2))))
+
+p <- p + scale_color_manual(values = c("#23576E", "#099FDB", "#29B00E", "#208F84", "#F55840", "#924F3E")) +
+  scale_fill_manual(name = "trend", values = "red", labels = r_label)
+p
+```
+
+**13. Add a Title and Captions:**
+
+Set these using the function `labs()`.
+
+* Title = 'Corruption and human development'
+* Caption = 'Sources: Transparency International; UN Human Development Report'
+
+```{r}
+p <- p + labs(
+  title = "Corruption and human development",
+  caption = "Sources: Transparency International; UN Human Development Report"
+)
+p
+```
+
+**14. Add a Theme:**
+
+The theme we want is the following:
+
+* Move the legend to the top and as a single row using `legend_position`
+* Set a custom font for all text elements using using `base_family`
+
+
+```{r}
+p <- p + guides(color = guide_legend(nrow = 1)) +
+  theme_bw(base_family = "Slabo 27px") +
+  theme(legend.position = "top")
+p
+```
+
+**15. Final changes:**
+
+* Turn off minor gridlines
+* Turn off major gridlines on x-axis
+* Remove the gray background
+* Remove panel border
+* Remove legend titles
+* Make axes titles italic
+* Turn off y-axis ticks
+* Change x-axis ticks to color grey60
+* Make plot title bold
+* Decrease size of caption to size 8
+
+
+```{r}
+p + theme(
+  panel.grid.minor = element_blank(),
+  panel.grid.major.x = element_blank(),
+  panel.background = element_blank(),
+  panel.border = element_blank(),
+  legend.title = element_blank(),
+  axis.title = element_text(face = "italic"),
+  axis.ticks.y = element_blank(),
+  axis.ticks.x = element_line(color = "grey60"),
+  plot.title = element_text(face = "bold"),
+  plot.caption = element_text(hjust = 0, size = 8)
+)
+```

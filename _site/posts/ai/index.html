@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AI in Bioinformatics</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/ai/index.html">AI in Bioinformatics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -124,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/ai/index.html">AI in Bioinformatics</a></li></ol></nav>
       <h1 class="title">AI in Bioinformatics</h1>
             <p class="subtitle lead">Using AI with caution to code for research</p>
                                 <div class="quarto-categories">
@@ -182,13 +182,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../posts/ai/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">AI in Bioinformatics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/ggplot/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Learning ggplot2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../posts/nf_core/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pre-made Pipelines in nf-core</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/piping/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/piping/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basics of Nextflow</span></a>
   </div>
 </li>
@@ -201,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../posts/pixi/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to use Pixi for environment management</span></a>
+ <span class="menu-text">Pixi for environment management</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -228,10 +240,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#important-information-regarding-ai" id="toc-important-information-regarding-ai" class="nav-link active" data-scroll-target="#important-information-regarding-ai">Important information regarding AI</a>
-  <ul class="collapse">
-  <li><a href="#take-away-from-discussion-about-ai" id="toc-take-away-from-discussion-about-ai" class="nav-link" data-scroll-target="#take-away-from-discussion-about-ai">Take-away from discussion about AI</a></li>
-  </ul></li>
+  <li><a href="#take-away-from-discussion-about-ai" id="toc-take-away-from-discussion-about-ai" class="nav-link active" data-scroll-target="#take-away-from-discussion-about-ai">Take-away from discussion about AI</a></li>
+  <li><a href="#a-framework-for-working-with-ai" id="toc-a-framework-for-working-with-ai" class="nav-link" data-scroll-target="#a-framework-for-working-with-ai">A framework for working with AI</a></li>
   </ul>
 </nav>
     </div>
@@ -242,22 +252,35 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="important-information-regarding-ai" class="level2">
-<h2 class="anchored" data-anchor-id="important-information-regarding-ai">Important information regarding AI</h2>
 <section id="take-away-from-discussion-about-ai" class="level3">
 <h3 class="anchored" data-anchor-id="take-away-from-discussion-about-ai">Take-away from discussion about AI</h3>
-<p><strong>Learning with AI:</strong> *</p>
+<p><strong>Learning with AI:</strong></p>
+<ul>
+<li>AI is a great study partner</li>
+<li>Although it has to be integrated well since it introduces the risk of being misinformed and have lower brain engagement</li>
+<li>You can promt the AI to teach you something from the level you want, e.g.&nbsp;beginner or high-school student level</li>
+</ul>
 <p><strong>Productivity with AI:</strong></p>
 <ul>
-<li></li>
+<li>In a study, experts in bioinformatics thought AI would make their work more efficient, however it showed the opposite!</li>
+<li>The experts lost time to 1) checking and correcting code generated by AI, 2) having better knowledge themselves, 3) AI not understanding the context of their work etc.</li>
 </ul>
 <p><strong>Data Privacy and Legal Concerns:</strong></p>
 <ul>
-<li></li>
+<li>Terms of Service from AI companies are often very invasive in their way of collecting data from you. It’s important to consider using AI or not based on what information you want to be shared. See an example below:</li>
+</ul>
+<p>[<strong>Account Personal Data</strong>, We collect Personal Data that you provide when you set up an account, such as your date of birth (where applicable), username (where applicable), email address and/or telephone number, and password.</p>
+<p><strong>User Input</strong>, When you use our Services, we may collect your text input, prompt, uploaded files, feedback, chat history, or other content that you provide to our model and Services (“Prompts” or “Inputs”). We generate responses (“Outputs”) based on your Inputs.</p>
+<p><strong>Personal Data When You Contact Us</strong>, When you contact us, we collect the Personal Data you send us, such as proof of identity or age, contact details, feedback or inquiries about your use of the Services or Personal Data about possible violations of our Terms of Service (our “Terms”) or other policies.]{.mark}</p>
+<ul>
+<li>Protection of sensitive biological data is highly important when using AI. A <strong>serious</strong> mistake people can make is using input sequences, tables, or other data into a GPT to find ways to plot data, perform sequence annotations, or similar tasks. Be wary of doing this as the AI will collect your sensitive data!</li>
 </ul>
 <p><strong>Local and open-weight models:</strong></p>
 <ul>
-<li></li>
+<li>It’s important to know that when you use a commercial model, any data attached to it will land on someone else’s server.</li>
+<li><strong>Local models</strong> inhibits your data to leave your computer, some examples of these are: <strong>Ollama</strong> and <strong>LM-studio</strong> -&gt; These are open-weight LLMs</li>
+<li>These can be used offline</li>
+<li>However, your computer might not have the hardware to run these models. A small laptop generally has a weaker version of a local model</li>
 </ul>
 <p><strong>Personal Responsibility:</strong></p>
 <ul>
@@ -272,9 +295,31 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><img src="ai_language.png" class="img-fluid"><img src="ai_language2.png.png" class="img-fluid"> GPT words in YouTube videos from <a href="https://arxiv.org/pdf/2409.01754">Yakura et al 2025</a></p>
 <p><strong>AI on the Internet:</strong></p>
-
-
+<ul>
+<li>AI is trained on many different inappropriate datasets, e.g.&nbsp;Reddit -&gt; leading to data pollution</li>
+<li>Today you cannot be sure if something is written by a human or a bot</li>
+<li>Reddit has agreements with Google and OpenAI, aka they get money from having their content used for model training</li>
+<li>The amount of content generated by AI rose from 2-3% in November 2022 to 24% by the end of 2023</li>
+</ul>
+<p><strong>Environmental Impact:</strong></p>
+<ul>
+<li>Do not ask questions that you coulnd’t find yourself</li>
+<li>Do not use “Please” or “Thank you”, every added word uses more energy</li>
+<li>Add <code>-ai</code> at the end of Google searches to remove automatic AI generated content</li>
+</ul>
+<p><strong>AI and reproducible research:</strong> * Reproducibility practises used to take a lot of time and money to implement and was intimidating to initiate * AI has made it easier to intiate reproducibility in research, e.g.&nbsp;it helps with creating a Github repository and appropriate commit messages quickly</p>
 </section>
+<section id="a-framework-for-working-with-ai" class="level3">
+<h3 class="anchored" data-anchor-id="a-framework-for-working-with-ai">A framework for working with AI</h3>
+<p>Working well and effectively with AI can be desribed by the four D’s: <img src="ai_fluency.jpg.png" class="img-fluid"></p>
+<ul>
+<li><p><strong>Delegation</strong>: Deciding whether, when, and how to involve AI at all. Ask the questions <em>Can I find this information in another way?</em> and <em>How much time am I saving by using AI?</em></p></li>
+<li><p><strong>Description</strong>: Describing what you want clearly enough to get a useful result. Prompting is everything! Ask the question <em>Is my promt good enough?</em></p></li>
+<li><p><strong>Discernment</strong>: Judging the quality of what comes back rather than accepting it. This is probably the most important part! Ask the question <em>Do I know enough about the topic to know whether the GPT is lying to me?</em></p></li>
+<li><p><strong>Diligence</strong>: Taking responsibility for how you used AI in your work. Be honest about when and how you used AI. Ask the question <em>What are the consequences of testing the validity of the AI output? Will I potentially lie about my research if I don’t validate it?</em></p></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

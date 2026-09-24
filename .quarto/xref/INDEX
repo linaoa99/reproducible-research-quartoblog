@@ -40,5 +40,8 @@
   },
   "posts/ai/index.qmd": {
     "index.html": "514a3e43"
+  },
+  "posts/nextflow/index.qmd": {
+    "index.html": "03106e92"
   }
 }
