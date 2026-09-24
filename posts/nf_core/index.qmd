@@ -2,7 +2,7 @@
 title: "Pre-made Pipelines in nf-core"
 subtitle: "Using pre-made open-source nextflow pipelines"
 author: "Lina Andersson"
-date: "2026-09-17"
+date: "2026-09-17T16:35:00"
 date-format: "YYYY-MM-DD"
 time: "16:35"
 categories: [nf-core]

@@ -20,7 +20,6 @@
 
 
 
-
 <section id="take-away-from-discussion-about-ai" class="level3">
 <h3 class="anchored" data-anchor-id="take-away-from-discussion-about-ai">Take-away from discussion about AI</h3>
 <p><strong>Learning with AI:</strong></p>
@@ -97,7 +96,7 @@
   <pubDate>Fri, 18 Sep 2026 11:47:00 GMT</pubDate>
 </item>
 <item>
-  <title></title>
+  <title>Learning ggplot2</title>
   <dc:creator>Lina Andersson</dc:creator>
   <link>https://reproducible-research-quartoblog-lina.io/posts/ggplot/</link>
   <description><![CDATA[ 
@@ -105,11 +104,10 @@
 
 
 
-
 <section id="learning-ggplot2" class="level2">
 <h2 class="anchored" data-anchor-id="learning-ggplot2">Learning ggplot2</h2>
 <p>Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by <a href="https://nbisweden.github.io/raukr-2026/labs/ggplot/">Raukr</a>:</p>
-<p>There are two exercises apart from learning basics which we will cover in this blog post:</p>
+<p>There are two exercises apart from learning basics, in which we will cover one in this blog post:</p>
 <section id="economist-scatterplot" class="level3">
 <h3 class="anchored" data-anchor-id="economist-scatterplot">Economist scatterplot</h3>
 <p>The aim of this challenge is to recreate the plot below originally published in <a href="https://www.economist.com/graphic-detail/2011/12/02/corrosive-corruption"><em>The Economist</em></a>. The graph is a scatterplot showing the relationship between <em>Corruption Index and Human Development Index for various countries</em>.</p>
@@ -1048,7 +1046,6 @@ font-style: inherit;">8</span>)</span>
 
 
 
-
 <p>Most bioinformaticians don’t do the hard work of making their own pipelines from scratch. Instead, they use some flagship pipelines that have been developed by the <a href="https://nf-co.re/pipelines/"><code>nf-core</code></a> community! There are <strong>157 pipelines</strong> available.</p>
 <p><strong>Volunteers</strong> develop nextflow pipelines around a variety of bioinformatic data. All <code>nf-core</code> pipelines are open source and the source code is available on github.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1424,7 +1421,6 @@ Note
 
 
 
-
 <p>Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a <code>workflow</code> or <code>pipeline</code>.</p>
 <p>Manual deployment of pipelines is not always the most effective path to take in cases of: * Many steps in your analysis * Many files needing processing * Files with different sizes; one takes a minute to run, another takes an hour…</p>
 <p>With the goal of automizing pipelines/workflows a software was made: <strong>workflow managers</strong>. What does it do? * Coordinates the deployment of the scripts in the appropriate sequence * Monitors the jobs * Handles the file transfers between scripts * Gathers the output * Handles re-execution of failed jobs for you * Can run containers -&gt; which eliminates software installation and version conflicts</p>
@@ -1522,7 +1518,6 @@ Note
   <dc:creator>Lina Andersson</dc:creator>
   <link>https://reproducible-research-quartoblog-lina.io/posts/pixi_qc/</link>
   <description><![CDATA[ 
-
 
 
 
@@ -1722,7 +1717,6 @@ font-style: inherit;">--help</span></span></code></pre></div></div>
 
 
 
-
 <p>Differing software versions and dependencies break reproducibility. We solve this for command-line bioinformatics tools with <code>Pixi</code> environments.</p>
 <p><code>Windows</code> doesn’t really support most bioinformatics tools, or your computer might run a different version of a specific tool than mine. One way to solve this, and make research more reproducible, is through the use of environments.</p>
 <p>In this post, I will show you how to use <code>Pixi</code> to create a reproducible environment for your bioinformatics tools. Since, we are working on a Linuxserver, we will use the command line to install and use <code>Pixi</code>.</p>
@@ -1840,35 +1834,6 @@ font-style: inherit;">--help</span></span></code></pre></div></div>
   <category>Pixi</category>
   <guid>https://reproducible-research-quartoblog-lina.io/posts/pixi/</guid>
   <pubDate>Tue, 15 Sep 2026 11:12:00 GMT</pubDate>
-</item>
-<item>
-  <title>Adding GIFs</title>
-  <dc:creator>Lina Andersson</dc:creator>
-  <link>https://reproducible-research-quartoblog-lina.io/posts/gif/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Here, I learned how to add a GIF to a Quarto blog post.</p>
-<p><img src="https://reproducible-research-quartoblog-lina.io/posts/gif/duck-dance.gif" class="img-fluid" style="width:50.0%"></p>
-<div id="90f44071" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!</span>[](duck<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>dance.gif)</span></code></pre></div></div>
-</div>
-<p>I also learned that you can add a GIF to a Quarto blog post by using the <code>![]()</code> syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.</p>
-<p>Isn’t that great? It makes me wanna do aduck dance!</p>
-
-
-
- ]]></description>
-  <category>Instructions</category>
-  <guid>https://reproducible-research-quartoblog-lina.io/posts/gif/</guid>
-  <pubDate>Mon, 14 Sep 2026 12:13:00 GMT</pubDate>
 </item>
 <item>
   <title>Publish a Quarto Blog via GitHub</title>
@@ -2038,7 +2003,35 @@ font-style: inherit;">}</span>}</span></code></pre></div></div>
   <category>Quarto</category>
   <category>GitHub</category>
   <guid>https://reproducible-research-quartoblog-lina.io/posts/publication/</guid>
-  <pubDate>Sun, 13 Sep 2026 22:00:00 GMT</pubDate>
+  <pubDate>Mon, 14 Sep 2026 13:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Adding GIFs</title>
+  <dc:creator>Lina Andersson</dc:creator>
+  <link>https://reproducible-research-quartoblog-lina.io/posts/gif/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Here, I learned how to add a GIF to a Quarto blog post.</p>
+<p><img src="https://reproducible-research-quartoblog-lina.io/posts/gif/duck-dance.gif" class="img-fluid" style="width:50.0%"></p>
+<div id="90f44071" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>[](duck<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>dance.gif)</span></code></pre></div></div>
+</div>
+<p>I also learned that you can add a GIF to a Quarto blog post by using the <code>![]()</code> syntax in Markdown. The GIF file should be placed in the same directory as the Quarto file or in a subdirectory, and you can reference it using the relative path. Alternatively, if you leave the path empty, Quarto will look for the GIF in the same directory as the Quarto file automatically.</p>
+<p>Isn’t that great? It makes me wanna do aduck dance!</p>
+
+
+
+ ]]></description>
+  <category>Instructions</category>
+  <guid>https://reproducible-research-quartoblog-lina.io/posts/gif/</guid>
+  <pubDate>Mon, 14 Sep 2026 12:13:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

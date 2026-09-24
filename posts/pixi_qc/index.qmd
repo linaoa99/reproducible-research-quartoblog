@@ -2,10 +2,10 @@
 title: "Quality Control using Pixi"
 subtitle: "Using screen, SLURM, pixi, FastQC and MultiQC"
 author: "Lina Andersson"
-date: "2026-09-15 16:05"
+date: "2026-09-15T16:05:00"
 date-modified: "2026-09-24"
 date-format: "YYYY-MM-DD"
-time: "11:14"
+time: "16:05"
 categories: [Instructions, QC, Pixi]
 ---
 

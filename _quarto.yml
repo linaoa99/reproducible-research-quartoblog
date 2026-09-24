@@ -28,7 +28,7 @@ website:
         - text: "Pre-made Pipelines in nf-core"
           href: posts/nf_core/index.qmd
         - text: "Basics of Nextflow"
-          href: posts/piping/index.qmd
+          href: posts/nextflow/index.qmd
         - text: "How to run Quality Control using Pixi"
           href: posts/pixi_qc/index.qmd
         - text: "Pixi for environment management"

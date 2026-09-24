@@ -5,7 +5,7 @@ listing:
   feed: true
   sort: "date desc"
   type: table
-  fields: [image, date, time, title, author, reading-time]
+  fields: [date, time, title, author, reading-time]
   categories: numbered
   field-display-names:
     date: "Date"
@@ -14,9 +14,8 @@ listing:
     author: "Author"
     reading-time: "Reading Time"
   sort-ui: false
-  filter-ui: true
+  filter-ui: false
 page-layout: full
-title-block-banner: true
 ---
 
 

@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Lina Andersson">
+<meta name="dcterms.date" content="2026-09-18">
 
-<title>quarto-inputa3a8b8176f03c51e – Lina's Blog</title>
+<title>Learning ggplot2 – Lina’s Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -116,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -157,45 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/ggplot/index.html">Learning ggplot2</a></li></ol></nav>
-      
-                                <div class="quarto-categories">
-                <div class="quarto-category">Instructions</div>
-                <div class="quarto-category">ggplot2</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Lina Andersson </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">2026-09-18 11:37</p>
-      </div>
-    </div>
-    
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">2026-09-24 14:05</p>
-      </div>
-    </div>
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -241,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/piping/index.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/nextflow/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basics of Nextflow</span></a>
   </div>
 </li>
@@ -289,16 +252,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/ggplot/index.html">Learning ggplot2</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Learning ggplot2</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Instructions</div>
+    <div class="quarto-category">ggplot2</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lina Andersson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2026-09-18</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2026-09-24</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="learning-ggplot2" class="level2">
 <h2 class="anchored" data-anchor-id="learning-ggplot2">Learning ggplot2</h2>
 <p>Here, you will learn how to make plots using the R package ggplot2. To learn this we will follow the tutorial by <a href="https://nbisweden.github.io/raukr-2026/labs/ggplot/">Raukr</a>:</p>
-<p>There are two exercises apart from learning basics which we will cover in this blog post:</p>
+<p>There are two exercises apart from learning basics, in which we will cover one in this blog post:</p>
 <section id="economist-scatterplot" class="level3">
 <h3 class="anchored" data-anchor-id="economist-scatterplot">Economist scatterplot</h3>
 <p>The aim of this challenge is to recreate the plot below originally published in <a href="https://www.economist.com/graphic-detail/2011/12/02/corrosive-corruption"><em>The Economist</em></a>. The graph is a scatterplot showing the relationship between <em>Corruption Index and Human Development Index for various countries</em>.</p>
@@ -670,7 +670,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/reproducible-research-quartoblog-lina\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

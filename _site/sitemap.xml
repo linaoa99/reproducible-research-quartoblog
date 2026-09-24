@@ -2,10 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://reproducible-research-quartoblog-lina.io/index.html</loc>
-    <lastmod>2026-09-24T13:33:34.048Z</lastmod>
+    <lastmod>2026-09-24T14:14:22.640Z</lastmod>
   </url>
   <url>
     <loc>https://reproducible-research-quartoblog-lina.io/posts/publication/index.html</loc>
-    <lastmod>2026-09-24T13:32:10.515Z</lastmod>
+    <lastmod>2026-09-24T13:44:19.452Z</lastmod>
+  </url>
+  <url>
+    <loc>https://reproducible-research-quartoblog-lina.io/posts/pixi/index.html</loc>
+    <lastmod>2026-09-24T13:47:05.068Z</lastmod>
+  </url>
+  <url>
+    <loc>https://reproducible-research-quartoblog-lina.io/posts/nextflow/index.html</loc>
+    <lastmod>2026-09-24T13:47:30.302Z</lastmod>
+  </url>
+  <url>
+    <loc>https://reproducible-research-quartoblog-lina.io/posts/ggplot/index.html</loc>
+    <lastmod>2026-09-24T13:47:55.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://reproducible-research-quartoblog-lina.io/posts/ai/index.html</loc>
+    <lastmod>2026-09-24T13:48:09.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://reproducible-research-quartoblog-lina.io/posts/gif/index.html</loc>
+    <lastmod>2026-09-24T13:44:42.388Z</lastmod>
+  </url>
+  <url>
+    <loc>https://reproducible-research-quartoblog-lina.io/posts/nf_core/index.html</loc>
+    <lastmod>2026-09-24T13:47:19.272Z</lastmod>
+  </url>
+  <url>
+    <loc>https://reproducible-research-quartoblog-lina.io/posts/pixi_qc/index.html</loc>
+    <lastmod>2026-09-24T13:46:34.725Z</lastmod>
+  </url>
+  <url>
+    <loc>https://reproducible-research-quartoblog-lina.io/about.html</loc>
+    <lastmod>2026-09-24T08:53:49.107Z</lastmod>
   </url>
 </urlset>

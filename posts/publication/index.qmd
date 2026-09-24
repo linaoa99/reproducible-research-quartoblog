@@ -1,7 +1,7 @@
 ---
 title: "Publish a Quarto Blog via GitHub"
 author: "Lina Andersson"
-date: "2026-09-14"
+date: "2026-09-14T15:00:00"
 date-format: "YYYY-MM-DD"
 time: "15:00"
 categories: [Instructions, Quarto, GitHub]

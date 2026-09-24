@@ -2,7 +2,7 @@
 title: "AI in Bioinformatics"
 subtitle: "Using AI with caution to code for research"
 author: "Lina Andersson"
-date: "2026-09-18"
+date: "2026-09-18T13:47:00"
 date-format: "YYYY-MM-DD" 
 time: "13:47"
 categories: [AI]

@@ -1,8 +1,8 @@
 ---
 title: "Learning ggplot2"
 author: "Lina Andersson"
-date: "2026-09-18 11:37"
-date-modified: "2026-09-24 14:05"
+date: "2026-09-18T11:37:00"
+date-modified: "2026-09-24"
 date-format: "YYYY-MM-DD"
 time: "11:37"
 categories: [Instructions, ggplot2]
