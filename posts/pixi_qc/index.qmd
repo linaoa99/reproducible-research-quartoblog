@@ -1,6 +1,6 @@
 ---
 title: "Quality Control using Pixi"
-subtitle: "Using screen, slurm, pixi, FastQC and MultiQC"
+subtitle: "Using screen, SLURM, pixi, FastQC and MultiQC"
 author: "Lina Andersson"
 date: "2026-09-15 16:05"
 date-format: "YYYY-MM-DD HH:mm"
@@ -13,3 +13,111 @@ Poor quality sequencing data can be caused by:
 - Sample contamination/degradation
 - Improper library preparation
 - Technical issues during sequencing
+
+## Using Screen
+
+When working in a server and running complex pipelines it might be useful to work in a `Screen`. This is a *terminal multiplexer* which allows you to:
+
+* Open any number of windows (virtual terminals) inside that session
+* Run processes that will continue even when their window is not visible or if you get disconnected
+
+Start a `screen` session my typing the following into the command line:
+```{.bash}
+screen -S fastqc
+```
+
+Other useful commands when working with `screens` are:
+* Detaching from screen session:
+```{.bash}
+Ctrl + a d
+```
+* Find a screen session ID and its status (aka if it is currently running):
+```{.bash}
+screen -ls
+```
+* Resume a screen session:
+```{.bash}
+screen -r <name-of-session>
+```
+
+## Linking ones data
+
+When you work in a server, you might have your data in a directory far away from where you are running your analysis. Instead of copying a large dataset to the current working directory you might want to `link` your data using:
+
+```{.bash}
+ln -s <path-to-data-folder/*fastq.gz> .
+```
+
+## QC in a Pixi environment
+
+To start running a QC like `FastQC` or `MultiQC` you have to create a pixi environment which uses package sources from conda-forge and bioconda. See [previous blog post](../pixi/index.qmd) about setting this up.
+
+:::{.callout-note}
+**OBS!** Here, the order of the channels matters. Add conda-forge first, then bioconda in your pixi environment
+:::
+
+Then add FastQC to the environment in the `pixi.toml` by running the following into the command line, then run it:
+```{.bash}
+pixi add fastqc
+pixi run fastqc --help
+```
+
+## Using SLURM
+
+The HPC2N server uses `SLURM` as its job schedualing system. When you submit a job, it will execute and monitor your jobs on the working nodes. It allocates access to the cluster resources, and manages the queue of pending jobs.
+
+Here is what a SLURM command looks like on the command line:
+```{.bash}
+srun -A project_ID -t 30:00 -n 1 pixi run <tool options and commands>
+```
+
+* **-A project_ID** - Annotates the name of the project
+* **-t 30:00** - Decides how much time should be used in this format DD-HH:MM:SS
+* **-n 1** - Decides number of cores used (1 is default)
+
+For `FastQC` we modify the command to:
+```{.bash}
+srun -A project_ID -t 15:00 -n 1 pixi run fastqc --noextract -o fastqc data/sampleA_1.fastq.gz data/sampleA_2.fastq.gz
+```
+
+After running this we will get an `.html` report of the `FastQC` run.
+
+## Using sbatch
+
+Srun works fine if you’re working on one sample, but this command has no tracability, meaning you might not remember your command if you run it in a week or so. It is also not very efficient for when you want to run `FastQC` on many samples.
+
+Here, `sbatch` is a good method to run several samples at once. To run `FastQC` using sbatch you need to make a new directory called `scripts`. Within it, touch a new file called `fastqc.sh`.
+
+Copy the following into the `fastqc.sh` file:
+```{.bash}
+#! /bin/bash -l
+#SBATCH -A project_ID
+#SBATCH -t 30:00
+#SBATCH -n 1
+
+pixi run fastqc -o ../fastqc --noextract ../data/*fastq.gz
+```
+
+* **-o ../fastqc** - Names the directory for your output to be rendered, meaning you have to make such a directory before running the `sbatch` command
+
+Save and run this in your pixi environment using the following command:
+```{.bash}
+sbatch fastqc.sh 
+```
+
+You can check your job using the following command:
+```{.bash}
+squeue -u <user-name> 
+```
+
+After running the job you will get a `SLURM` output file in the directory you ran your job in. It's a `.html` file.
+
+To summarize the `FastQC` reports into one, you can use `MultiQC`. Do this by:
+
+First download `MultiQC` in your Pixi environment:
+```{.bash}
+pixi add multiqc
+pixi run multiqc --help
+```
+ 
+Then, write a new `sbatch` script with the name `multiqc.sh` and add new information, e.g. a new directory for the output to enter

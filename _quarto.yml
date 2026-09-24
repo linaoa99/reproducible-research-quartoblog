@@ -29,6 +29,8 @@ website:
         - text: "Basics of Nextflow"
           href: posts/piping/index.qmd
         - text: "How to run Quality Control using Pixi"
+          href: posts/pixi_qc/index.qmd
+        - text: "Pixi for environment management"
           href: posts/pixi/index.qmd
         - text: "How to Publish a Quarto Blog via GitHub"
           href: posts/publication/index.qmd
