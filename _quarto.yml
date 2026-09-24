@@ -4,6 +4,7 @@ project:
 website:
   description: "A blog about reproducible research for newbie Lina"
   title: "Lina's Blog"
+  site-url: https://reproducible-research-quartoblog-lina.io
   navbar:
     right:
       - about.qmd

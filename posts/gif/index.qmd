@@ -1,8 +1,9 @@
 ---
 title: "Adding GIFs"
 author: "Lina Andersson"
-date: "2026-09-14 14:13"
-date-format: "YYYY-MM-DD HH:mm"
+date: "2026-09-14"
+date-format: "YYYY-MM-DD"
+time: "14:13"
 categories: [Instructions]
 ---
 
