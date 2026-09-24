@@ -690,8 +690,182 @@ Note
 
 <p>In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will show you how to run QC using <code>Pixi</code> environments, <code>FastQC</code> and <code>MultiQC</code>.</p>
 <p>Poor quality sequencing data can be caused by: - Sample contamination/degradation - Improper library preparation - Technical issues during sequencing</p>
+<section id="using-screen" class="level2">
+<h2 class="anchored" data-anchor-id="using-screen">Using Screen</h2>
+<p>When working in a server and running complex pipelines it might be useful to work in a <code>Screen</code>. This is a <em>terminal multiplexer</em> which allows you to:</p>
+<ul>
+<li>Open any number of windows (virtual terminals) inside that session</li>
+<li>Run processes that will continue even when their window is not visible or if you get disconnected</li>
+</ul>
+<p>Start a <code>screen</code> session my typing the following into the command line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">screen</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-S</span> fastqc</span></code></pre></div></div>
+<p>Other useful commands when working with <code>screens</code> are: * Detaching from screen session:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Ctrl</span> + a d</span></code></pre></div></div>
+<ul>
+<li>Find a screen session ID and its status (aka if it is currently running):</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">screen</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-ls</span></span></code></pre></div></div>
+<ul>
+<li>Resume a screen session:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">screen</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>name-of-session<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
+</section>
+<section id="linking-ones-data" class="level2">
+<h2 class="anchored" data-anchor-id="linking-ones-data">Linking ones data</h2>
+<p>When you work in a server, you might have your data in a directory far away from where you are running your analysis. Instead of copying a large dataset to the current working directory you might want to <code>link</code> your data using:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ln</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-s</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>path-to-data-folder/<span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span>fastq.gz<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> .</span></code></pre></div></div>
+</section>
+<section id="qc-in-a-pixi-environment" class="level2">
+<h2 class="anchored" data-anchor-id="qc-in-a-pixi-environment">QC in a Pixi environment</h2>
+<p>To start running a QC like <code>FastQC</code> or <code>MultiQC</code> you have to create a pixi environment which uses package sources from conda-forge and bioconda. See <a href="../../posts/pixi/index.html">previous blog post</a> about setting this up.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>OBS!</strong> Here, the order of the channels matters. Add conda-forge first, then bioconda in your pixi environment</p>
+</div>
+</div>
+<p>Then add FastQC to the environment in the <code>pixi.toml</code> by running the following into the command line, then run it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> add fastqc</span>
+<span id="cb6-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run fastqc <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--help</span></span></code></pre></div></div>
+</section>
+<section id="using-slurm" class="level2">
+<h2 class="anchored" data-anchor-id="using-slurm">Using SLURM</h2>
+<p>The HPC2N server uses <code>SLURM</code> as its job schedualing system. When you submit a job, it will execute and monitor your jobs on the working nodes. It allocates access to the cluster resources, and manages the queue of pending jobs.</p>
+<p>Here is what a SLURM command looks like on the command line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">srun</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-A</span> project_ID <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span> 30:00 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> 1 pixi run <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>tool options and commands<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
+<ul>
+<li><strong>-A project_ID</strong> - Annotates the name of the project</li>
+<li><strong>-t 30:00</strong> - Decides how much time should be used in this format DD-HH:MM:SS</li>
+<li><strong>-n 1</strong> - Decides number of cores used (1 is default)</li>
+</ul>
+<p>For <code>FastQC</code> we modify the command to:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">srun</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-A</span> project_ID <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span> 15:00 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> 1 pixi run fastqc <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--noextract</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-o</span> fastqc data/sampleA_1.fastq.gz data/sampleA_2.fastq.gz</span></code></pre></div></div>
+<p>After running this we will get an <code>.html</code> report of the <code>FastQC</code> run.</p>
+</section>
+<section id="using-sbatch" class="level2">
+<h2 class="anchored" data-anchor-id="using-sbatch">Using sbatch</h2>
+<p>Srun works fine if you’re working on one sample, but this command has no tracability, meaning you might not remember your command if you run it in a week or so. It is also not very efficient for when you want to run <code>FastQC</code> on many samples.</p>
+<p>Here, <code>sbatch</code> is a good method to run several samples at once. To run <code>FastQC</code> using sbatch you need to make a new directory called <code>scripts</code>. Within it, touch a new file called <code>fastqc.sh</code>.</p>
+<p>Copy the following into the <code>fastqc.sh</code> file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#! /bin/bash -l</span></span>
+<span id="cb9-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#SBATCH -A project_ID</span></span>
+<span id="cb9-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#SBATCH -t 30:00</span></span>
+<span id="cb9-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#SBATCH -n 1</span></span>
+<span id="cb9-5"></span>
+<span id="cb9-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run fastqc <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-o</span> ../fastqc <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--noextract</span> ../data/<span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span>fastq.gz</span></code></pre></div></div>
+<ul>
+<li><strong>-o ../fastqc</strong> - Names the directory for your output to be rendered, meaning you have to make such a directory before running the <code>sbatch</code> command</li>
+</ul>
+<p>Save and run this in your pixi environment using the following command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">sbatch</span> fastqc.sh </span></code></pre></div></div>
+<p>You can check your job using the following command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">squeue</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-u</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>user-name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> </span></code></pre></div></div>
+<p>After running the job you will get a <code>SLURM</code> output file in the directory you ran your job in. It’s a <code>.html</code> file.</p>
+<p>To summarize the <code>FastQC</code> reports into one, you can use <code>MultiQC</code>. Do this by:</p>
+<p>First download <code>MultiQC</code> in your Pixi environment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> add multiqc</span>
+<span id="cb12-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run multiqc <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--help</span></span></code></pre></div></div>
+<p>Then, write a new <code>sbatch</code> script with the name <code>multiqc.sh</code> and add new information, e.g.&nbsp;a new directory for the output to enter</p>
 
 
+</section>
 
  ]]></description>
   <category>Instructions</category>
