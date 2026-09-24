@@ -2,14 +2,14 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/ggplot/index.html",
       "/posts/ai/index.html",
+      "/posts/ggplot/index.html",
       "/posts/nf_core/index.html",
       "/posts/nextflow/index.html",
       "/posts/pixi_qc/index.html",
       "/posts/pixi/index.html",
-      "/posts/gif/index.html",
-      "/posts/publication/index.html"
+      "/posts/publication/index.html",
+      "/posts/gif/index.html"
     ]
   }
 ]
