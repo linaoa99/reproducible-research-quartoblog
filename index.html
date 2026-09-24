@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-time','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -293,12 +293,26 @@ window.Quarto = {
 
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <table class="quarto-listing-table table">
 <thead>
 <tr>
 
 <th>
+ 
+</th>
+
+<th>
 Date
+</th>
+
+<th>
+Time
 </th>
 
 <th>
@@ -309,26 +323,23 @@ Title
 Author
 </th>
 
+<th>
+Reading Time
+</th>
+
 </tr>
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="QUk=" data-listing-date-sort="1789739220000" data-listing-file-modified-sort="1790255329888" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="790" data-listing-title-sort="AI in Bioinformatics" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-categories="SW5zdHJ1Y3Rpb25zJTJDZ2dwbG90Mg==" data-listing-date-sort="1789731420000" data-listing-file-modified-sort="1790257093807" data-listing-date-modified-sort="1790258700000" data-listing-reading-time-sort="8" data-listing-word-count-sort="1459" data-listing-title-sort="Learning ggplot2" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><p class="card-img-top"><img loading='lazy' src="posts/ggplot/index_files/figure-html/unnamed-chunk-1-1.png" style="height: 40px;"  class="thumbnail-image card-img"/></p></span>
+</td>
 <td>
 <span class="listing-date">Sep 18, 2026</span>
 </td>
 <td>
-<a href="./posts/ai/index.html" class="title listing-title">AI in Bioinformatics</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="SW5zdHJ1Y3Rpb25zJTJDZ2dwbG90Mg==" data-listing-date-sort="1789731420000" data-listing-file-modified-sort="1790255329889" data-listing-date-modified-sort="1790258700000" data-listing-reading-time-sort="8" data-listing-word-count-sort="1459" data-listing-title-sort="Learning ggplot2" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 18, 2026</span>
+<span class="listing-time">11:37</span>
 </td>
 <td>
 <a href="./posts/ggplot/index.html" class="title listing-title">Learning ggplot2</a>
@@ -336,12 +347,43 @@ Author
 <td>
 <span class="listing-author">Lina Andersson</span>
 </td>
+<td>
+<span class="listing-reading-time">8 min</span>
+</td>
 
 </tr>
 
-<tr data-index="2" data-categories="bmYtY29yZQ==" data-listing-date-sort="1789662900000" data-listing-file-modified-sort="1790255329895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1166" data-listing-title-sort="Pre-made Pipelines in nf-core" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-categories="QUk=" data-listing-date-sort="1789689600000" data-listing-file-modified-sort="1790257093806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="790" data-listing-title-sort="AI in Bioinformatics" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><p class="card-img-top"><img loading='lazy' src="posts/ai/ai_language.png" style="height: 40px;"  class="thumbnail-image card-img"/></p></span>
+</td>
+<td>
+<span class="listing-date">Sep 18, 2026</span>
+</td>
+<td>
+<span class="listing-time">13:47</span>
+</td>
+<td>
+<a href="./posts/ai/index.html" class="title listing-title">AI in Bioinformatics</a>
+</td>
+<td>
+<span class="listing-author">Lina Andersson</span>
+</td>
+<td>
+<span class="listing-reading-time">4 min</span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="bmYtY29yZQ==" data-listing-date-sort="1789603200000" data-listing-file-modified-sort="1790257093813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1166" data-listing-title-sort="Pre-made Pipelines in nf-core" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><p class="card-img-top"><img loading='lazy' src="posts/nf_core/nf_core_launcher.png" style="height: 40px;"  class="thumbnail-image card-img"/></p></span>
+</td>
 <td>
 <span class="listing-date">Sep 17, 2026</span>
+</td>
+<td>
+<span class="listing-time">16:35</span>
 </td>
 <td>
 <a href="./posts/nf_core/index.html" class="title listing-title">Pre-made Pipelines in nf-core</a>
@@ -349,12 +391,21 @@ Author
 <td>
 <span class="listing-author">Lina Andersson</span>
 </td>
+<td>
+<span class="listing-reading-time">6 min</span>
+</td>
 
 </tr>
 
-<tr data-index="3" data-categories="TmV4dGZsb3c=" data-listing-date-sort="1789571700000" data-listing-file-modified-sort="1790255329894" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="392" data-listing-title-sort="Basics of Nextflow" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-categories="TmV4dGZsb3c=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790257093812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="392" data-listing-title-sort="Basics of Nextflow" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><p class="card-img-top"><img loading='lazy' src="posts/nextflow/nf_basic_expl.png" style="height: 40px;"  class="thumbnail-image card-img"/></p></span>
+</td>
 <td>
 <span class="listing-date">Sep 16, 2026</span>
+</td>
+<td>
+<span class="listing-time">15:15</span>
 </td>
 <td>
 <a href="./posts/nextflow/index.html" class="title listing-title">Basics of Nextflow</a>
@@ -362,12 +413,21 @@ Author
 <td>
 <span class="listing-author">Lina Andersson</span>
 </td>
+<td>
+<span class="listing-reading-time">2 min</span>
+</td>
 
 </tr>
 
-<tr data-index="4" data-categories="SW5zdHJ1Y3Rpb25zJTJDUUMlMkNQaXhp" data-listing-date-sort="1789488300000" data-listing-file-modified-sort="1790255329900" data-listing-date-modified-sort="1790248440000" data-listing-reading-time-sort="4" data-listing-word-count-sort="629" data-listing-title-sort="Quality Control using Pixi" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-categories="SW5zdHJ1Y3Rpb25zJTJDUUMlMkNQaXhp" data-listing-date-sort="1789488300000" data-listing-file-modified-sort="1790257093818" data-listing-date-modified-sort="1790208000000" data-listing-reading-time-sort="4" data-listing-word-count-sort="629" data-listing-title-sort="Quality Control using Pixi" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
+</td>
 <td>
 <span class="listing-date">Sep 15, 2026</span>
+</td>
+<td>
+<span class="listing-time">11:14</span>
 </td>
 <td>
 <a href="./posts/pixi_qc/index.html" class="title listing-title">Quality Control using Pixi</a>
@@ -375,12 +435,21 @@ Author
 <td>
 <span class="listing-author">Lina Andersson</span>
 </td>
+<td>
+<span class="listing-reading-time">4 min</span>
+</td>
 
 </tr>
 
-<tr data-index="5" data-categories="SW5zdHJ1Y3Rpb25zJTJDUGl4aQ==" data-listing-date-sort="1789477920000" data-listing-file-modified-sort="1790255329899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="509" data-listing-title-sort="Pixi for environment management" data-listing-filename-sort="index.qmd">
+<tr data-index="5" data-categories="SW5zdHJ1Y3Rpb25zJTJDUGl4aQ==" data-listing-date-sort="1789430400000" data-listing-file-modified-sort="1790257093817" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="509" data-listing-title-sort="Pixi for environment management" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><p class="card-img-top"><img loading='lazy' src="posts/pixi/pixi.png" style="height: 40px;"  class="thumbnail-image card-img"/></p></span>
+</td>
 <td>
 <span class="listing-date">Sep 15, 2026</span>
+</td>
+<td>
+<span class="listing-time">13:12</span>
 </td>
 <td>
 <a href="./posts/pixi/index.html" class="title listing-title">Pixi for environment management</a>
@@ -388,12 +457,43 @@ Author
 <td>
 <span class="listing-author">Lina Andersson</span>
 </td>
+<td>
+<span class="listing-reading-time">3 min</span>
+</td>
 
 </tr>
 
-<tr data-index="6" data-categories="SW5zdHJ1Y3Rpb25zJTJDUXVhcnRvJTJDR2l0SHVi" data-listing-date-sort="1789398000000" data-listing-file-modified-sort="1790255329900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="502" data-listing-title-sort="Publish a Quarto Blog via GitHub" data-listing-filename-sort="index.qmd">
+<tr data-index="6" data-categories="SW5zdHJ1Y3Rpb25z" data-listing-date-sort="1789344000000" data-listing-file-modified-sort="1790257093812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94" data-listing-title-sort="Adding GIFs" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><p class="card-img-top"><img loading='lazy' src="posts/gif/duck-dance.gif" style="height: 40px;"  class="thumbnail-image card-img"/></p></span>
+</td>
 <td>
 <span class="listing-date">Sep 14, 2026</span>
+</td>
+<td>
+<span class="listing-time">14:13</span>
+</td>
+<td>
+<a href="./posts/gif/index.html" class="title listing-title">Adding GIFs</a>
+</td>
+<td>
+<span class="listing-author">Lina Andersson</span>
+</td>
+<td>
+<span class="listing-reading-time">1 min</span>
+</td>
+
+</tr>
+
+<tr data-index="7" data-categories="SW5zdHJ1Y3Rpb25zJTJDUXVhcnRvJTJDR2l0SHVi" data-listing-date-sort="1789344000000" data-listing-file-modified-sort="1790257093818" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="502" data-listing-title-sort="Publish a Quarto Blog via GitHub" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-image"><p class="card-img-top"><img loading='lazy' src="posts/publication/quarto_blog.jpg" style="height: 40px;"  class="thumbnail-image card-img"/></p></span>
+</td>
+<td>
+<span class="listing-date">Sep 14, 2026</span>
+</td>
+<td>
+<span class="listing-time">15:00</span>
 </td>
 <td>
 <a href="./posts/publication/index.html" class="title listing-title">Publish a Quarto Blog via GitHub</a>
@@ -401,18 +501,8 @@ Author
 <td>
 <span class="listing-author">Lina Andersson</span>
 </td>
-
-</tr>
-
-<tr data-index="7" data-categories="SW5zdHJ1Y3Rpb25z" data-listing-date-sort="1789395180000" data-listing-file-modified-sort="1790255329894" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="94" data-listing-title-sort="Adding GIFs" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-date">Sep 14, 2026</span>
-</td>
-<td>
-<a href="./posts/gif/index.html" class="title listing-title">Adding GIFs</a>
-</td>
-<td>
-<span class="listing-author">Lina Andersson</span>
+<span class="listing-reading-time">3 min</span>
 </td>
 
 </tr>
@@ -494,7 +584,7 @@ Author
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/linaoa99\.github\.io\/reproducible-research-quartoblog\/");
+        var filterRegex = new RegExp("https:\/\/reproducible-research-quartoblog-lina\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

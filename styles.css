@@ -1,21 +1,4 @@
 /* css styles */
 
-.subtitle {
-  color: black;
-  font-style: bold;
-}
-
-#quarto-sidebar .sidebar-logo {
-  width: 150px;
-  height: auto;
-}
-
-#quarto-sidebar .sidebar-logo.light-content {
-  display: inline !important;
-}
-
-#quarto-sidebar .sidebar-logo.dark-content {
-  display: none !important;
-}
 
 

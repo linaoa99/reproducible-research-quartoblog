@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Lina Andersson">
+<meta name="dcterms.date" content="2026-09-15">
 
 <title>Quality Control using Pixi – Lina’s Blog</title>
 <style>
@@ -116,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -157,47 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/pixi_qc/index.html">How to run Quality Control using Pixi</a></li></ol></nav>
-      <h1 class="title">Quality Control using Pixi</h1>
-            <p class="subtitle lead">Using screen, SLURM, pixi, FastQC and MultiQC</p>
-                                <div class="quarto-categories">
-                <div class="quarto-category">Instructions</div>
-                <div class="quarto-category">QC</div>
-                <div class="quarto-category">Pixi</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Lina Andersson </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">2026-09-15 16:05</p>
-      </div>
-    </div>
-    
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">2026-09-24 11:14</p>
-      </div>
-    </div>
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -292,10 +253,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Posts</a></li><li class="breadcrumb-item"><a href="../../posts/pixi_qc/index.html">How to run Quality Control using Pixi</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Quality Control using Pixi</h1>
+<p class="subtitle lead">Using screen, SLURM, pixi, FastQC and MultiQC</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Instructions</div>
+    <div class="quarto-category">QC</div>
+    <div class="quarto-category">Pixi</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lina Andersson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2026-09-15</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2026-09-24</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
 
 
 <p>In any dataset involving bioinformatics, it is important to perform quality control (QC) on the raw data before proceeding with any downstream analysis. In this post, I will show you how to run QC using <code>Pixi</code> environments, <code>FastQC</code> and <code>MultiQC</code>.</p>
@@ -461,7 +461,7 @@ Note
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/linaoa99\.github\.io\/reproducible-research-quartoblog\/");
+        var filterRegex = new RegExp("https:\/\/reproducible-research-quartoblog-lina\.io");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
